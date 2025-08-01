@@ -1,0 +1,26 @@
+import React from 'react'
+import '../index.css'
+import { Camera } from 'lucide-react'
+import nutritionLabelImage from '../assets/nutritionlabelv5.png'
+
+const Hero = () => {
+  return (
+    <div className='h-[90vh] container mx-auto px-8 flex flex-col md:flex-row items-center justify-start md:justify-between md:pt-0 md:items-center'>
+        {/* Text and Button Container */}
+        <div className='w-full md:flex-1 text-white space-y-5 md:space-y-10 px-4 md:px-8 text-center md:text-left'>
+            <h1 className='mt-10 md:mt-0 font-semibold text-4xl md:text-6xl lg:text-8xl'>We help you see <span className='italic'>beyond</span> the label</h1>
+            <button className="flex items-center justify-center font-semibold text-[17px] space-x-2 px-4 py-3 md:px-5 md:py-2 bg-secondarygreen md:bg-primarygreen hover:scale-105 rounded-lg transition-all duration-300 text-white cursor-pointer mx-auto md:mx-0">
+                <div>Start Scanning</div>
+                <Camera size={28} strokeWidth={1.75}/>
+            </button>
+        </div>
+
+        {/* Image Container */}
+        <div className='w-full md:flex-1 flex justify-center mt-8 md:mt-0'>
+            <img src={nutritionLabelImage} alt="Nutrition label example" className="drop-shadow-xl rounded-2xl rotate-2 w-[320px] sm:w-10/12"/>
+        </div>
+    </div>
+  )
+}
+
+export default Hero
