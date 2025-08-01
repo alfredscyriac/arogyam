@@ -17,7 +17,7 @@ const Hero = () => {
 
         {/* Image Container */}
         <div className='w-full md:flex-1 flex justify-center mt-8 md:mt-0'>
-            <img src={nutritionLabelImage} alt="Nutrition label example" className="rounded-2xl rotate-2 w-[320px] md:w-[500px]" 
+            <img src={nutritionLabelImage} alt="Nutrition label example" className="rounded-2xl rotate-2 w-[320px] md:w-[600px]" 
             style={{filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.75))'}}/>
         </div>
     </div>
