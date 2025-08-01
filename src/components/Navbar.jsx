@@ -16,9 +16,9 @@ const Navbar = () => {
         <img src={logo} alt="Arogyam Logo" className='my-auto h-12 cursor-pointer'/>
 
         <div className='flex justify-between font-inter text-white my-auto space-x-9'>
+          <div className='nav-text'>About</div>
             <div className='nav-text'>Guide</div>
             <div className='nav-text'>FAQ</div>
-            <div className='nav-text'>About Arogyam</div>
         </div>
 
         <div className='flex rounded-full font-inter text-white my-auto space-x-2 px-5 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'>
@@ -48,10 +48,10 @@ const Navbar = () => {
       { /* Mobile Menu Drop Down*/}
       {isMobileMenuOpen && (
         <div className='mobile-menu-enter lg:hidden absolute z-40 space-y-4 top-17 px-5 py-5 w-full bg-black text-white font-inter'>
+          <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={handleNavItemClick}>About</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={handleNavItemClick}>Guide</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={handleNavItemClick}>FAQ</div>
-          <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={handleNavItemClick}>About Arogyam</div>
-          <div className='flex max-w-28 rounded-xl font-inter space-x-2 px-3 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer' onClick={handleNavItemClick}>
+          <div className='flex max-w-28 items-center justify-center rounded-lg font-inter space-x-2 px-3 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer' onClick={handleNavItemClick}>
             <div>Sign In</div>
             <UserPlus size={20}/>
           </div>
