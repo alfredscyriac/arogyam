@@ -1,12 +1,14 @@
 import React from 'react'
 import Hero from '../sections/Hero.jsx'
 import '../index.css'
+import About from '../sections/About.jsx'
 
 const LandingPage = () => {
     return (
         <div>
             <Hero/>
-            <div></div>
+            <About/>
+            <div className='h-screen'></div>
         </div>
     )
   }
