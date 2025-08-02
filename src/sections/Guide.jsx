@@ -5,27 +5,27 @@ import { User, List, Camera, Brain, Check } from 'lucide-react'
 const Guide = () => {
     const steps = [
         {
-            icon: <User color="#ffffff" size={28}/>,
+            icon: <User color="#ffffff" size={25}/>,
             title: "Create Account",
             description: "Set up your profile in under 30 seconds"
         },
         {
-            icon: <List color="#ffffff" size={28}/>,
+            icon: <List color="#ffffff" size={25}/>,
             title: "Enter Avoidances", 
             description: "Tell us what ingredients you need to avoid"
         },
         {
-            icon: <Camera color="#ffffff" size={28}/>,
+            icon: <Camera color="#ffffff" size={25}/>,
             title: "Scan Product",
             description: "Point your camera at any barcode"
         },
         {
-            icon: <Brain color="#ffffff" size={28}/>, 
+            icon: <Brain color="#ffffff" size={25}/>, 
             title: "AI Analysis", 
             description: "We identify hidden harmful ingredients instantly"
         },
         {
-            icon: <Check color="#ffffff" size={28}/>,
+            icon: <Check color="#ffffff" size={25}/>,
             title: "View & Remember",
             description: "Get clear safety results and build your reference list"
         }
