@@ -8,7 +8,7 @@ const About = () => {
         <div className='container mx-auto px-6 md:px-12 lg:px-16 space-y-7 md:space-y-7 lg:space-y-10'>
             {/* Headline */}
             <div className='text-center md:mt-4'>
-                <h1 className='text-[17px] md:text-[22px] lg:text-[27px] font-inter font-semibold text-white italic leading-relaxed'>
+                <h1 className='text-[17px] md:text-[22px] lg:text-[27px] font-inter font-semibold text-white leading-relaxed'>
                     Millions of people with health conditions{' '}
                     <span className='bg-primarygreen px-1 py-1'>unknowingly</span>{' '}
                     consume harmful ingredients daily
@@ -44,9 +44,9 @@ const About = () => {
                         <p className='text-gray-300 text-xs md:text-sm lg:text-base'>Creator of Arogyam</p>
                         <p className='mx-auto text-white italic text-xs md:text-sm lg:text-base'>
                         "The word Arogyam comes from my native language, Malayalam, and it translates to{' '}
-                        <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>strength</span>,{' '}
-                        <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>health</span>, and{' '}
-                        <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>wellness</span>."
+                        <span className='font-semibold'>strength</span>,{' '}
+                        <span className='font-semibold'>health</span>, and{' '}
+                        <span className='font-semibold'>wellness</span>."
                     </p>
                     </div>
                 </div>
