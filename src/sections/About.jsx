@@ -43,7 +43,7 @@ const About = () => {
                         <h3 className='text-base md:text-lg lg:text-2xl font-semibold text-white'>Alfred Siby Cyriac</h3>
                         <p className='text-gray-300 text-xs md:text-sm lg:text-base'>Creator of Arogyam</p>
                         <p className='mx-auto text-white italic text-xs md:text-sm lg:text-base'>
-                        "The name Arogyam comes from my native language, Malayalam, and it translates to{' '}
+                        "The word Arogyam comes from my native language, Malayalam, and it translates to{' '}
                         <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>strength</span>,{' '}
                         <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>health</span>, and{' '}
                         <span className='font-semibold bg-primarygreen py-[2px] md:py-1'>wellness</span>."
