@@ -1,7 +1,7 @@
 import React from 'react'
 import '../index.css'
 import { Camera } from 'lucide-react'
-import nutritionLabelImage from '../assets/nutritionlabelv5.png'
+import nutritionLabelImage from '../assets/nutritionlabelv6.png'
 
 const Hero = () => {
   return (
