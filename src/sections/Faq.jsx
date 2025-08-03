@@ -34,7 +34,7 @@ const Faq = () => {
         {
             id: 6,
             question: "Is Arogyam free to use?",
-            answer: "Absolutely! It is 100% free of charge to create your account and start scanning. However, this service is rate limited -- every day we only have a certain capacity of scans that will be allowed. Arogyam is currently in a stage we would like to refer to as 'demo.' As of today this product brings in profit, thus we are able to invest back into the product to match supply with demand."
+            answer: "Absolutely! It is 100% free of charge to create your account and start scanning. However, this service is rate limited -- every day we only have a certain capacity of scans that will be allowed. Arogyam is currently in a stage we would like to refer to as 'demo.' As of today this product does not generate profit, thus we are not able to invest back into the product to match supply with demand."
         }
     ]
     const [activeQuestion, setActiveQuestion] = useState(null); 
