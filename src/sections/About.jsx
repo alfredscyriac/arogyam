@@ -27,7 +27,7 @@ const About = () => {
 
                 <div className='flex-1 bg-gradient-to-br from-emerald-500 to-teal-800 rounded-2xl p-6 md:p-8'>
                     <div className='font-inter font-normal text-white text-justify text-[12px] md:text-[14px] lg:text-[17px]'>Arogyam translates complex ingredient lists into simple 
-                    safety answers. <span className=' italic'>Scan. Check. Stay Safe.</span>When you scan the barcode of any product, 
+                    safety answers. <span className='font-bold italic'>Scan. Check. Stay Safe.</span> When you scan the barcode of any product, 
                     we identify its ingredients list. From there we use artificial intelligence to identify if any ingredients are unsafe for our users  
                     based of their entered list of avoidances. Our mission at Arogyam is to empower people to take control of their health and 
                     make ingredient transparency accessible to everyone. </div>

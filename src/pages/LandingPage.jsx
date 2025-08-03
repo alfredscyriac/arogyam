@@ -14,7 +14,7 @@ const LandingPage = () => {
             <Faq/>
         </div>
     )
-  }
+}
 
 export default LandingPage
 
