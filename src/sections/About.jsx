@@ -5,10 +5,10 @@ import headshot from '../assets/feb25headshot.jpg'
 const About = () => {
   return (
     <div className='w-full h-[101vh] flex items-center justify-center bg-darkazure'>
-        <div className='container mx-auto px-6 md:px-12 lg:px-16 space-y-7 md:space-y-7 lg:space-y-10'>
+        <div className='container mx-auto px-6 md:px-12 lg:px-16 space-y-4 md:space-y-7 lg:space-y-10'>
             {/* Headline */}
             <div className='text-center md:mt-4'>
-                <h1 className='text-[17px] md:text-[22px] lg:text-[27px] font-inter font-semibold text-white leading-relaxed'>
+                <h1 className='text-[13px] md:text-[22px] lg:text-[27px] font-inter font-semibold text-white leading-relaxed'>
                     Millions of people with health conditions{' '}
                     <span className='bg-primarygreen px-1 py-1'>unknowingly</span>{' '}
                     consume harmful ingredients daily
@@ -17,7 +17,7 @@ const About = () => {
 
             {/* Cards Container */}
             <div className='flex flex-col lg:flex-row gap-6 lg:gap-8'>
-                <div className='flex-1 bg-gradient-to-br from-red-900 to-orange-600 rounded-2xl p-6 md:p-8'>
+                <div className='flex-1 bg-gradient-to-br from-red-900 to-orange-600 rounded-2xl p-4 md:p-8'>
                     <div className='font-inter font-normal text-white text-justify text-[12px] md:text-[14px] lg:text-[17px]'>Healthcare professionals give proper advice, 
                     but the consumer market makes it impossible to follow. Companies make products with lengthy ingredients lists and use 
                     technical names to hide what they truly are. Someone with celiac disease may be eating on a strict gluten-free 
@@ -25,7 +25,7 @@ const About = () => {
                     disguised as “hydrolyzed wheat protein.”</div>
                 </div>
 
-                <div className='flex-1 bg-gradient-to-br from-emerald-500 to-teal-800 rounded-2xl p-6 md:p-8'>
+                <div className='flex-1 bg-gradient-to-br from-emerald-500 to-teal-800 rounded-2xl p-4 md:p-8'>
                     <div className='font-inter font-normal text-white text-justify text-[12px] md:text-[14px] lg:text-[17px]'>Arogyam translates complex ingredient lists into simple 
                     safety answers. <span className='font-bold italic'>Scan. Check. Stay Safe.</span> When you scan the barcode of any product, 
                     we identify its ingredients list. From there we use artificial intelligence to identify if any ingredients are unsafe for our users  
