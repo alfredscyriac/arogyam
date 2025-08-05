@@ -32,11 +32,11 @@ const Guide = () => {
     ];
     return (
     <div className='w-full h-[101vh] flex items-center justify-center font-inter'>
-        <div className='container mx-auto px-6 md:px-12 lg:px-16 space-y-8 md:space-y-16'>
+        <div className='container mx-auto px-6 md:px-12 lg:px-16 space-y-2 md:space-y-16'>
             {/*Header*/}
             <div className='text-center space-y-2'>
-                <h1 className='text-2xl md:text-3xl lg:text-5xl font-semibold text-white'>How Arogyam Works</h1>
-                <p className='font-light text-lg md:text-xl lg:text-2xl text-white'>5 simple steps to <span className='bg-primarygreen px-1 py-1'>safer shopping</span></p>
+                <h1 className='text-xl md:text-3xl lg:text-5xl font-semibold text-white'>How Arogyam Works</h1>
+                <p className='font-light text-base md:text-xl lg:text-2xl text-white'>5 simple steps to <span className='bg-primarygreen px-1 py-1'>safer shopping</span></p>
             </div>
 
             {/* Steps Container */}
