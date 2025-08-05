@@ -83,7 +83,7 @@ const Navbar = () => {
 
       { /* Mobile Menu Drop Down*/}
       {isMobileMenuOpen && (
-        <div className='mobile-menu-enter lg:hidden absolute z-40 space-y-4 top-17 px-5 py-5 w-full bg-black text-white font-inter font-light'>
+        <div className='mobile-menu-enter lg:hidden sticky z-40 space-y-4 top-17 px-5 py-5 w-full bg-black text-white font-inter font-light'>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('about')}>About</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('guide')}>Guide</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('faq')}>FAQ</div>
