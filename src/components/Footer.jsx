@@ -2,15 +2,36 @@ import React from 'react'
 import '../index.css'
 import logo from '../assets/arogyamlogo.png'
 import { Github } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom'
 
 const Footer = () => {
-  return (
+    const navigate = useNavigate();
+
+    const scrollToSection = (sectionId) => {
+        if (window.location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 500);
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    };
+    return (
     <footer className='bg-black text-white font-inter font-light py-16 md:py-20'>
         <div className='container mx-auto px-6 md:px-10 lg:px-12'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12'>
                 {/* Left Column - Project Branding */}
                 <div className='space-y-6'>
-                    <img src={logo} alt="Arogyam Logo" className='h-12'/>
+                    <Link to="/">
+                        <img src={logo} alt="Arogyam Logo" className='h-12'/>
+                    </Link>
                     <p className='text-gray-300 leading-relaxed max-w-sm'>
                         A software created to assist those with health conditions identify harmful and misleading ingredients in the products that they consume. 
                     </p>
@@ -24,10 +45,26 @@ const Footer = () => {
                 <div className='space-y-6'>
                     <h3 className='text-xl font-semibold'>Company</h3>
                     <ul className='space-y-3'>
-                        <li><a href="#" className='text-gray-300 hover:text-lightgreen transition-colors'>Home</a></li>
-                        <li><a href="#" className='text-gray-300 hover:text-lightgreen transition-colors'>About</a></li>
-                        <li><a href="#" className='text-gray-300 hover:text-lightgreen transition-colors'>Guide</a></li>
-                        <li><a href="#" className='text-gray-300 hover:text-lightgreen transition-colors'>FAQ</a></li>
+                        <li>
+                            <button onClick={() => scrollToSection('hero')} className='text-gray-300 hover:text-lightgreen transition-colors'>
+                                Home
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('about')} className='text-gray-300 hover:text-lightgreen transition-colors text-left'>
+                                About
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('guide')} className='text-gray-300 hover:text-lightgreen transition-colors text-left'>
+                                Guide
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('faq')} className='text-gray-300 hover:text-lightgreen transition-colors text-left'>
+                                FAQ
+                            </button>
+                        </li>
                     </ul>
                 </div>
 
@@ -35,7 +72,11 @@ const Footer = () => {
                 <div className='space-y-6'>
                     <h3 className='text-xl font-semibold'>Important Links</h3>
                         <ul className='space-y-3'>
-                            <li><a href="#" className='text-gray-300 hover:text-lightgreen transition-colors'>Privacy Policy</a></li>
+                            <li>
+                                <Link to="/privacypolicy" className='text-gray-300 hover:text-lightgreen transition-colors'>
+                                    Privacy Policy
+                                </Link>
+                            </li>
                         </ul>
                 </div>
             </div>
