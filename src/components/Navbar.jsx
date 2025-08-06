@@ -24,18 +24,25 @@ const Navbar = () => {
   const scrollToSection = (sectionId) => {
     if (window.location.pathname !== '/') {
       navigate('/'); 
-
+  
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if(element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start'})
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
         }
-  
       }, 500) 
     } else {
       const element = document.getElementById(sectionId); 
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
       }
     }
     handleNavItemClick(); 

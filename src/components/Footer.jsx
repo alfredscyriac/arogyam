@@ -7,22 +7,39 @@ import { Link, useNavigate } from 'react-router-dom'
 const Footer = () => {
     const navigate = useNavigate();
 
+    const handleHomeClick = () => {
+        if (window.location.pathname === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          navigate('/')
+        }
+    }
+
     const scrollToSection = (sectionId) => {
         if (window.location.pathname !== '/') {
             navigate('/');
             setTimeout(() => {
                 const element = document.getElementById(sectionId);
                 if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    element.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest'
+                    });
                 }
             }, 500);
         } else {
             const element = document.getElementById(sectionId);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest'
+                });
             }
         }
     };
+
     return (
     <footer className='bg-black text-white font-inter font-light py-16 md:py-20'>
         <div className='container mx-auto px-6 md:px-10 lg:px-12'>
@@ -46,7 +63,7 @@ const Footer = () => {
                     <h3 className='text-xl font-semibold'>Company</h3>
                     <ul className='space-y-3'>
                         <li>
-                            <button onClick={() => scrollToSection('hero')} className='text-gray-300 hover:text-lightgreen transition-colors'>
+                            <button onClick={handleHomeClick} className='text-gray-300 hover:text-lightgreen transition-colors'>
                                 Home
                             </button>
                         </li>
@@ -83,7 +100,7 @@ const Footer = () => {
             
             {/* Copyright Statement Line */}
             <div className='mt-8 pt-6 text-left'>
-                <p className='text-gray-400 font-inter font=light'>
+                <p className='text-gray-400 font-inter font-light'>
                     © 2025 Arogyam. All rights reserved.
                 </p>
             </div>
