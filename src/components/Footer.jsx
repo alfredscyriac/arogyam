@@ -53,7 +53,7 @@ const Footer = () => {
                         A software created to assist those with health conditions identify harmful and misleading ingredients in the products that they consume. 
                     </p>
                     <div className='flex space-x-4'>
-                        <a href="https://github.com/alfredscyriac" target="_blank" className='text-gray-400 hover:text-lightgreen transition-colors hover:cursor-pointer'><Github/></a>
+                        <a href="https://github.com/alfredscyriac/arogyam" target="_blank" className='text-gray-400 hover:text-lightgreen transition-colors hover:cursor-pointer'><Github/></a>
                     </div>
 
                 </div>

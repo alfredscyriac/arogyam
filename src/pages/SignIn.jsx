@@ -19,9 +19,9 @@ const SignIn = () => {
             {/* Logo */}
             <button 
                 onClick={handleLogoClick} 
-                className='absolute top-6 left-6 cursor-pointer'
+                className='absolute top-6 left-10 cursor-pointer'
             >
-                <img src={logo} alt="Arogyam Logo" className='h-10 sm:h-12'/>
+                <img src={logo} alt="Arogyam Logo" className='h-11'/>
             </button>
 
             { /* Form + title + description container */}
