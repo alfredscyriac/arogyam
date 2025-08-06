@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import '../index.css'
 import logo from '../assets/arogyamlogo.png'
+import googlelogo from '../assets/Googlelogo.webp'
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
@@ -64,7 +65,6 @@ const SignIn = () => {
                         </div>
                     </div>
 
-                    {/* Sign In Button */}
                     <button
                         type="submit"
                         className="w-full bg-primarygreen text-white py-2 rounded-lg hover:bg-secondarygreen transition-colors font-medium text-md"
@@ -78,12 +78,12 @@ const SignIn = () => {
                         <div className="flex-grow border-t border-gray-600"></div>
                     </div>
 
-                    {/* Google Button */}
                     <button
                         type="button"
-                        className="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-600 transition-colors font-medium text-md border border-gray-600"
+                        className="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-600 transition-colors font-medium text-md border border-gray-600 flex items-center justify-center space-x-3"
                     >
-                        Continue with Google
+                        <img src={googlelogo} alt="Google" className="h-4 w-4" />
+                        <span>Continue with Google</span>
                     </button>
 
                     <div className="text-center pt-4">
