@@ -62,10 +62,10 @@ const Navbar = () => {
             <div className='nav-text' onClick={() => scrollToSection('faq')}>FAQ</div>
         </div>
 
-        <div className='flex rounded-full font-inter font-light text-white my-auto space-x-2 px-5 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'>
+        <Link to='/signin' className='flex rounded-full font-inter font-light text-white my-auto space-x-2 px-5 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'>
             <div>Sign In</div>
             <UserPlus size={20} strokeWidth={1.25}/>
-        </div>
+        </Link>
       </div>
 
       {/* Mobile View (anything smaller than large) */}
