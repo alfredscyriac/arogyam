@@ -73,7 +73,7 @@ const SignUp = () => {
                         className='w-4 h-4 bg-gray-100 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent '/>
                         <label htmlFor="termscheckbox" className='ml-2 font-light text-sm'>
                             I agree to the{' '}
-                            <Link className='nav-text font-medium'>Terms of Service</Link>{' '}and{' '}<Link target="_blank" to='/privacypolicy' className='font-medium nav-text'>Privacy Policy</Link>
+                            <Link to='/termsofservice' target="_blank" className='nav-text font-medium'>Terms of Service</Link>{' '}and{' '}<Link target="_blank" to='/privacypolicy' className='font-medium nav-text'>Privacy Policy</Link>
                         </label>
                     </div>
 

@@ -152,7 +152,7 @@ const PrivacyPolicy = () => {
           {/* Contact Information */}
           <section>
             <h2 className='text-2xl font-medium text-white mb-4'>9. Contact Us</h2>
-            <div className='bg-gray-50 p-6 rounded-lg text-black font-light'>
+            <div className='bg-gray-50 p-6 rounded-lg text-black font-normal'>
               <p className='mb-4'>
                 If you have any questions about this Privacy Policy or our data practices, please contact us: alfredscyriac@gmail.com
               </p>

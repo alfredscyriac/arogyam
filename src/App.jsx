@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.jsx'
 import LandingPage from './pages/LandingPage'
 import Footer from './components/Footer.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
@@ -21,6 +22,7 @@ function AppContent() {
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+        <Route path='/termsofservice' element={<TermsOfService/>} />
       </Routes>
       {!isAuthPage && <Footer/>}
     </div>
