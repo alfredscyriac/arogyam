@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage'
 import Footer from './components/Footer.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 
 
@@ -18,6 +19,7 @@ function AppContent() {
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
       </Routes>
       {!isAuthPage && <Footer/>}

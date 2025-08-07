@@ -4,10 +4,11 @@ import '../index.css'
 import logo from '../assets/arogyamlogo.png'
 import googlelogo from '../assets/Googlelogo.webp'
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const SignIn = () => {
+const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [agreedToTerms, setAgreedToTerms] = useState(false); 
     const navigate = useNavigate();
 
     const handleLogoClick = () => {
@@ -16,7 +17,6 @@ const SignIn = () => {
 
     return (
         <div className='min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 font-inter text-white relative'>
-            {/* Logo */}
             <button 
                 onClick={handleLogoClick} 
                 className='absolute top-6 left-10 cursor-pointer'
@@ -24,12 +24,11 @@ const SignIn = () => {
                 <img src={logo} alt="Arogyam Logo" className='h-11'/>
             </button>
 
-            { /* Form + title + description container */}
             <div className='w-full max-w-md space-y-4 mt-6'>
                 <div className='text-left space-y-4'>
-                    <h1 className='text-xl sm:text-2xl font-semibold'>Welcome to Arogyam</h1>
+                    <h1 className='text-xl sm:text-2xl font-semibold'>Get started with Arogyam</h1>
                     <p className='text-sm sm:text-base text-gray-300 font-light leading-relaxed'>
-                        Sign in to access your dashboard and continue taking control of your health.
+                        You are one step closer to unlocking ingredient transparency.
                     </p>
                 </div>
 
@@ -65,11 +64,28 @@ const SignIn = () => {
                         </div>
                     </div>
 
+                    <div className='flex items-center'>
+                        <input 
+                        id="termscheckbox" 
+                        type="checkbox" 
+                        checked={agreedToTerms} 
+                        onChange={() => setAgreedToTerms(!agreedToTerms)} 
+                        className='w-4 h-4 bg-gray-100 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent '/>
+                        <label htmlFor="termscheckbox" className='ml-2 font-light text-sm'>
+                            I agree to the{' '}
+                            <Link className='nav-text font-medium'>Terms of Service</Link>{' '}and{' '}<Link target="_blank" to='/privacypolicy' className='font-medium nav-text'>Privacy Policy</Link>
+                        </label>
+                    </div>
+
                     <button
-                        type="submit"
-                        className="w-full bg-primarygreen text-white py-2 rounded-lg hover:bg-secondarygreen transition-colors font-medium text-md cursor-pointer"
+                        type="submit" disabled={!agreedToTerms}
+                        className={`w-full py-2 rounded-lg font-medium text-md ${
+                            agreedToTerms 
+                            ? " bg-primarygreen hover:bg-secondarygreen transition-colors text-white cursor-pointer" 
+                            : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                        }`}
                     >
-                        Sign In
+                        Sign Up
                     </button>
 
                     <div className="relative flex items-center ">
@@ -79,22 +95,26 @@ const SignIn = () => {
                     </div>
 
                     <button
-                        type="button"
-                        className="w-full bg-blue-500 hover:bg-blue-600 transition-colors text-white py-2 rounded-lg font-medium text-md border border-gray-600 flex items-center justify-center space-x-3 cursor-pointer"
+                        type="button" disabled={!agreedToTerms}
+                        className={`w-full py-2 rounded-lg font-medium text-md border border-gray-600 flex items-center justify-center space-x-3 ${
+                            agreedToTerms
+                            ? "bg-blue-500 hover:bg-blue-600 transition-colors text-white cursor-pointer"
+                            : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                        }`}
                     >
                         <img src={googlelogo} alt="Google" className="h-4 w-4 filter brightness-0 invert" />
-                        <span>Continue with Google</span>
+                        <span>Sign up with Google</span>
                     </button>
 
                     <div className="text-center pt-4">
                         <p className="text-gray-400 text-sm">
-                            Not using Arogyam yet?{' '}
+                            Already have an account?{' '}
                             <button 
                                 type="button"
-                                onClick={() => navigate('/signup')}
+                                onClick={() => navigate('/signin')}
                                 className="text-white nav-text font-medium"
                             >
-                                Create an account now
+                                Sign In
                             </button>
                         </p>
                     </div>
@@ -105,4 +125,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp

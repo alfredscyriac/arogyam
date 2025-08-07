@@ -94,6 +94,9 @@ const Footer = () => {
                                     Privacy Policy
                                 </Link>
                             </li>
+                            <li className='text-gray-300 hover:text-lightgreen transition-colors'>Terms of Service</li>
+                            <li className='text-gray-300 hover:text-lightgreen transition-colors'>Provide Feedback</li>
+                            <li className='text-gray-300 hover:text-lightgreen transition-colors'>Create a Ticket</li>
                         </ul>
                 </div>
             </div>
