@@ -109,3 +109,47 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
 </body>
 </html>
 `;
+
+export const WELCOME_EMAIL_TEMPLATE = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Arogyam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 600px; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
+  <div style="background: linear-gradient(135deg, #00bf63, #0e824a); padding: 30px 20px; text-align: center;">
+    <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Arogyam</h1>
+    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px; font-weight: 500;">Welcome to Safer Shopping</p>
+  </div>
+  <div style="background-color: #1a1a1a; padding: 40px 30px; border-radius: 0 0 12px 12px;">
+    <p style="color: #ffffff; font-size: 18px; margin-bottom: 20px; font-weight: 600;">Hey {username}! 👋</p>
+    
+    <p style="color: #e5e5e5; font-size: 16px; margin-bottom: 20px;">Welcome to Arogyam! We're so grateful that you want to use our software.</p>
+    
+    <div style="background-color: #242424; border-left: 4px solid #00bf63; padding: 24px; margin: 30px 0; border-radius: 8px;">
+      <p style="color: #72c49c; font-size: 14px; font-weight: 600; margin: 0 0 12px 0;">💚 BUILT WITH YOU IN MIND</p>
+      <p style="color: #e5e5e5; font-size: 16px; margin: 0; line-height: 1.6;">This software was built with you, the user, in mind. We want to help as many people as we can shop safer, and we truly hope that Arogyam is of great use to you.</p>
+    </div>
+    
+    <p style="color: #e5e5e5; font-size: 16px; margin-bottom: 30px;">Your account is now verified and ready to go! Time to take control of your health and start identifying those hidden harmful ingredients.</p>
+    
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="https://arogyam.health/dashboard" style="background: linear-gradient(135deg, #00bf63, #0e824a); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.2s ease;">🚀 Go to Dashboard & Start Scanning</a>
+    </div>
+    
+    <div style="background-color: #242424; padding: 20px; margin: 30px 0; border-radius: 8px; text-align: center;">
+      <p style="color: #72c49c; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">✨ PRO TIP</p>
+      <p style="color: #e5e5e5; font-size: 14px; margin: 0;">Don't wait - head over to your dashboard and start scanning now!</p>
+    </div>
+    
+    <p style="color: #ffffff; font-size: 16px; margin-top: 30px;">Welcome to safer, smarter shopping!<br><span style="color: #00bf63; font-weight: 600;">The Arogyam Team</span></p>
+  </div>
+  <div style="text-align: center; margin-top: 20px; padding: 20px;">
+    <p style="color: #666666; font-size: 12px; margin: 0;">You're receiving this because you just verified your Arogyam account.</p>
+  </div>
+</body>
+</html>
+`;
