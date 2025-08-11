@@ -88,5 +88,6 @@ export const signin = async (req, res) => {
 };
 
 export const logout = async (req, res) => {
-    res.send("Log out route"); 
+    res.clearCookie("token")
+    res.status(200).json({ success: true, message: "Logged out successfully" }); 
 };
