@@ -99,8 +99,6 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
       <p style="color: #72c49c; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;">⏰ TIME SENSITIVE</p>
       <p style="color: #e5e5e5; font-size: 14px; margin: 0;">This link will expire in 1 hour for security reasons.</p>
     </div>
-    <p style="color: #b0b0b0; font-size: 14px; margin-bottom: 30px;">If the button doesn't work, copy and paste this link into your browser:<br>
-    <span style="color: #72c49c; word-break: break-all;">{resetURL}</span></p>
     <p style="color: #ffffff; font-size: 16px;">Best regards,<br><span style="color: #00bf63; font-weight: 600;">The Arogyam Team</span></p>
   </div>
   <div style="text-align: center; margin-top: 20px; padding: 20px;">

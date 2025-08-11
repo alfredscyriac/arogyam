@@ -1,7 +1,11 @@
 import { User } from '../models/user.model.js'
 import { generateTokenAndSetCookie } from '../utils/generateTokenAndSetCookie.js'
-import { sendVerificationEmail, sendWelcomeEmail } from '../mailtrap/email.js';
+import { sendVerificationEmail, sendWelcomeEmail, sendPasswordResetEmail } from '../mailtrap/email.js';
 import bcryptjs from 'bcryptjs'; 
+import cryto from "crypto";
+import dotenv from "dotenv"; 
+
+dotenv.config(); 
 
 export const signup = async (req, res) => {
     const {email, password, name} = req.body; 
@@ -23,8 +27,7 @@ export const signup = async (req, res) => {
             password: hashedPassword, 
             name, 
             verificationToken,
-            verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000
-
+            verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // Expires 24 hours after creation
         })
 
         await user.save(); 
@@ -117,3 +120,32 @@ export const logout = async (req, res) => {
     res.clearCookie("token")
     res.status(200).json({ success: true, message: "Logged out successfully" }); 
 };
+
+export const forgotPassword = async (req, res) => {
+    const { email } = req.body; 
+
+    try {
+        const user = await User.findOne({email}); 
+
+        if(!user) {
+            return res.status(400).json({success: false, message: "User not found"}); 
+        }
+
+        const resetToken = cryto.randomBytes(32).toString("hex"); 
+        const resetTokenExpiresAt = Date.now() + 1 * 60 * 60 * 1000; // Expires in 1 hour after creation
+
+        user.resetPasswordToken = resetToken; 
+        user.resetPasswordExpiresAt = resetTokenExpiresAt; 
+
+        await user.save(); 
+
+        await sendPasswordRestEmail(user.email, `${process.env.CLIENT_URL}/resetpassword/${resetToken}`);
+
+        res.status(200).json({success: true, message: "Password reset link sent to your email"}); 
+    } catch (error) {
+        console.log("Error in forgot password function ", error); 
+
+        res.status(400).json({success: false, message: error.message}); 
+
+    }
+}; 
