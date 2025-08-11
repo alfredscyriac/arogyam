@@ -7,7 +7,7 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
   <title>Verify Your Email - Arogyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 600px; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 100%; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
   <div style="background: linear-gradient(135deg, #00bf63, #0e824a); padding: 30px 20px; text-align: center;">
     <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Arogyam</h1>
     <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px; font-weight: 500;">Verify Your Email</p>
@@ -41,7 +41,7 @@ export const PASSWORD_RESET_SUCCESS_TEMPLATE = `
   <title>Password Reset Successful - Arogyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 600px; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 100%; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
   <div style="background: linear-gradient(135deg, #00bf63, #0e824a); padding: 30px 20px; text-align: center;">
     <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Arogyam</h1>
     <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px; font-weight: 500;">Password Reset Successful</p>
@@ -83,7 +83,7 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
   <title>Reset Your Password - Arogyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 600px; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 100%; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
   <div style="background: linear-gradient(135deg, #00bf63, #0e824a); padding: 30px 20px; text-align: center;">
     <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Arogyam</h1>
     <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px; font-weight: 500;">Password Reset Request</p>
@@ -119,7 +119,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
   <title>Welcome to Arogyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 600px; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #ffffff; max-width: 100%; margin: 0 auto; padding: 0; background-color: #0f0f0f;">
   <div style="background: linear-gradient(135deg, #00bf63, #0e824a); padding: 30px 20px; text-align: center;">
     <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Arogyam</h1>
     <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px; font-weight: 500;">Welcome to Safer Shopping</p>

@@ -66,7 +66,18 @@ export const verifyEmail = async (req, res) => {
         await user.save(); 
 
         await sendWelcomeEmail(user.email, user.name); 
+
+        res.status(200).json({
+            success: true, 
+            message: "Email verified successfully", 
+            user: {
+                ...user._doc, 
+                password: undefined,
+            },
+        })
     } catch (error) {
+        console.log("Error in verifyEmail", error); 
+        res.status(500).json({success: false, message: error.message});
         
     }
 
