@@ -5,6 +5,7 @@ import googlelogo from '../assets/Googlelogo.webp';
 import { useState } from 'react';
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import PasswordStrengthMeter from '../components/PasswordStrengthMeter.jsx';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -39,9 +40,8 @@ const SignUp = () => {
                     </p>
                 </div>
 
-                <form onSubmit={handleSignUp} className='space-y-4'>
+                <form onSubmit={handleSignUp} className='space-y-5'>
                     <div className='space-y-2'>
-                        <label className='block text-sm font-light'>Name</label>
                         <div className="relative">
                             <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                             <input
@@ -56,7 +56,6 @@ const SignUp = () => {
 
 
                     <div className='space-y-2'>
-                        <label className='block text-sm font-light'>Email</label>
                         <div className="relative">
                             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                             <input
@@ -70,7 +69,6 @@ const SignUp = () => {
                     </div>
 
                     <div className='space-y-2'>
-                        <label className='block text-sm font-light'>Password</label>
                         <div className="relative">
                             <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                             <input
@@ -90,7 +88,7 @@ const SignUp = () => {
                         </div>
                     </div>
 
-                    {/* Password Strength Meter */}
+                    <PasswordStrengthMeter password={password}/>
 
                     <div className='flex items-center'>
                         <input 
