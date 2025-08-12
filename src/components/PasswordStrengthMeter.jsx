@@ -50,8 +50,8 @@ const PasswordStrengthMeter = ({password}) => {
 		if (strength === 0) return "Very Weak";
 		if (strength === 1) return "Weak";
 		if (strength === 2) return "Fairly Strong";
-		if (strength === 3) return "Very Strong";
-		return "Strong";
+		if (strength === 3) return "Strong";
+		return "Very Strong";
 	};
     return (
         <div className='mt-1'>

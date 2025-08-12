@@ -3,15 +3,24 @@ import { useState } from 'react';
 import '../index.css'
 import logo from '../assets/arogyamlogo.png'
 import googlelogo from '../assets/Googlelogo.webp'
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, Loader } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState("");
+    
+    const isLoading = false;
+    
     const navigate = useNavigate();
 
     const handleLogoClick = () => {
         navigate('/')
+    }
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
     }
 
     return (
@@ -33,7 +42,7 @@ const SignIn = () => {
                     </p>
                 </div>
 
-                <form className='space-y-6'>
+                <form onSubmit={handleSignIn} className='space-y-6'>
                     <div className='space-y-4'>
                         <label className='block text-sm font-light'>Email</label>
                         <div className="relative">
@@ -41,6 +50,8 @@ const SignIn = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="w-full pl-10 pr-4 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
                             />
                         </div>
@@ -53,6 +64,8 @@ const SignIn = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="w-full pl-10 pr-12 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
                             />
                             <button
@@ -65,11 +78,22 @@ const SignIn = () => {
                         </div>
                     </div>
 
+                    <div className='text-right text-sm'>
+                        <button 
+                                type="button"
+                                onClick={() => navigate('/forgotpassword')}
+                                className="text-white hover:text-lightgreen duration-200 cursor-pointer"
+                        >
+                            Forgot your password?
+                        </button>
+                    </div>
+
                     <button
                         type="submit"
+                        disabled={isLoading}
                         className="w-full bg-primarygreen text-white py-2 rounded-lg hover:bg-secondarygreen transition-colors font-medium text-md cursor-pointer"
                     >
-                        Sign In
+                        {isLoading ? <Loader className='w-6 h-6 mx-auto animate-spin'/> : "Sign In"}
                     </button>
 
                     <div className="relative flex items-center ">
