@@ -3,9 +3,10 @@ import '../index.css';
 import logo from '../assets/arogyamlogo.png';
 import googlelogo from '../assets/Googlelogo.webp';
 import { useState } from 'react';
-import { User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { User, Mail, Lock, Eye, EyeOff, Loader } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import PasswordStrengthMeter from '../components/PasswordStrengthMeter.jsx';
+import { useAuthStore } from '../store/authStore';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -19,8 +20,16 @@ const SignUp = () => {
         navigate('/')
     }
 
-    const handleSignUp = (e) => {
-        e.preventDefault(); 
+    const { signup, error, isLoading } = useAuthStore();
+    const handleSignUp = async(e) => {
+        e.preventDefault();
+        try {
+            await signup(email, password, name); 
+            navigate('/verifyemail');
+        } catch (error) {
+            console.log(error)
+            
+        } 
     }
 
     return (
@@ -87,7 +96,7 @@ const SignUp = () => {
                             </button>
                         </div>
                     </div>
-
+                    {error && <p className='text-red-400 mt-2'>{error}</p>}
                     <PasswordStrengthMeter password={password}/>
 
                     <div className='flex items-center'>
@@ -104,32 +113,14 @@ const SignUp = () => {
                     </div>
 
                     <button
-                        type="submit" disabled={!agreedToTerms}
+                        type="submit" disabled={!agreedToTerms || isLoading}
                         className={`w-full py-2 rounded-lg font-medium text-sm ${
                             agreedToTerms 
                             ? " bg-primarygreen hover:bg-secondarygreen transition-colors text-white cursor-pointer" 
                             : "bg-gray-600 text-gray-400 cursor-not-allowed"
                         }`}
                     >
-                        Sign Up
-                    </button>
-
-                    <div className="relative flex items-center ">
-                        <div className="flex-grow border-t border-gray-600"></div>
-                        <span className="px-4 text-gray-400 text-sm">OR</span>
-                        <div className="flex-grow border-t border-gray-600"></div>
-                    </div>
-
-                    <button
-                        type="button" disabled={!agreedToTerms}
-                        className={`w-full py-2 rounded-lg font-medium text-sm border border-gray-600 flex items-center justify-center space-x-3 ${
-                            agreedToTerms
-                            ? "bg-blue-500 hover:bg-blue-600 transition-colors text-white cursor-pointer"
-                            : "bg-gray-600 text-gray-400 cursor-not-allowed"
-                        }`}
-                    >
-                        <img src={googlelogo} alt="Google" className="h-3 w-3 filter brightness-0 invert" />
-                        <span>Sign up with Google</span>
+                        { isLoading ? <Loader className='w-6 h-6 animate-spin mx-auto'/> : "Sign Up" }
                     </button>
 
                     <div className="text-center pt-1">

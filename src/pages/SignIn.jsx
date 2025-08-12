@@ -96,19 +96,6 @@ const SignIn = () => {
                         {isLoading ? <Loader className='w-6 h-6 mx-auto animate-spin'/> : "Sign In"}
                     </button>
 
-                    <div className="relative flex items-center ">
-                        <div className="flex-grow border-t border-gray-600"></div>
-                        <span className="px-4 text-gray-400 text-sm">OR</span>
-                        <div className="flex-grow border-t border-gray-600"></div>
-                    </div>
-
-                    <button
-                        type="button"
-                        className="w-full bg-blue-500 hover:bg-blue-600 transition-colors text-white py-2 rounded-lg font-medium text-md border border-gray-600 flex items-center justify-center space-x-3 cursor-pointer"
-                    >
-                        <img src={googlelogo} alt="Google" className="h-4 w-4 filter brightness-0 invert" />
-                        <span>Continue with Google</span>
-                    </button>
 
                     <div className="text-center pt-4">
                         <p className="text-gray-400 text-sm">
