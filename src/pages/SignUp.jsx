@@ -9,10 +9,17 @@ import { Link, useNavigate } from 'react-router-dom';
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [agreedToTerms, setAgreedToTerms] = useState(false); 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleLogoClick = () => {
         navigate('/')
+    }
+
+    const handleSignUp = (e) => {
+        e.preventDefault(); 
     }
 
     return (
@@ -24,7 +31,7 @@ const SignUp = () => {
                 <img src={logo} alt="Arogyam Logo" className='h-11'/>
             </button>
 
-            <div className='w-full max-w-md space-y-3 mt-8'>
+            <div className='w-full max-w-[480px] space-y-3 mt-8'>
                 <div className='text-left space-y-2'>
                     <h1 className='text-lg sm:text-2xl font-semibold'>Get started with Arogyam</h1>
                     <p className='text-sm text-gray-300 font-light leading-relaxed'>
@@ -32,7 +39,7 @@ const SignUp = () => {
                     </p>
                 </div>
 
-                <form className='space-y-4'>
+                <form onSubmit={handleSignUp} className='space-y-4'>
                     <div className='space-y-2'>
                         <label className='block text-sm font-light'>Name</label>
                         <div className="relative">
@@ -40,7 +47,9 @@ const SignUp = () => {
                             <input
                                 type="text"
                                 placeholder="Enter your first name"
-                                className="text-md w-full pl-10 pr-4 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="text-sm w-full pl-10 pr-4 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
                             />
                         </div>
                     </div>
@@ -53,7 +62,9 @@ const SignUp = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="text-md w-full pl-10 pr-4 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="text-sm w-full pl-10 pr-4 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
                             />
                         </div>
                     </div>
@@ -65,7 +76,9 @@ const SignUp = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
-                                className="text-md w-full pl-10 pr-12 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="text-sm w-full pl-10 pr-12 py-2 border border-gray-600 bg-black text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-400"
                             />
                             <button
                                 type="button"
@@ -76,6 +89,8 @@ const SignUp = () => {
                             </button>
                         </div>
                     </div>
+
+                    {/* Password Strength Meter */}
 
                     <div className='flex items-center'>
                         <input 
@@ -92,7 +107,7 @@ const SignUp = () => {
 
                     <button
                         type="submit" disabled={!agreedToTerms}
-                        className={`w-full py-2 rounded-lg font-medium text-md ${
+                        className={`w-full py-2 rounded-lg font-medium text-sm ${
                             agreedToTerms 
                             ? " bg-primarygreen hover:bg-secondarygreen transition-colors text-white cursor-pointer" 
                             : "bg-gray-600 text-gray-400 cursor-not-allowed"
@@ -109,17 +124,17 @@ const SignUp = () => {
 
                     <button
                         type="button" disabled={!agreedToTerms}
-                        className={`w-full py-2 rounded-lg font-medium text-md border border-gray-600 flex items-center justify-center space-x-3 ${
+                        className={`w-full py-2 rounded-lg font-medium text-sm border border-gray-600 flex items-center justify-center space-x-3 ${
                             agreedToTerms
                             ? "bg-blue-500 hover:bg-blue-600 transition-colors text-white cursor-pointer"
                             : "bg-gray-600 text-gray-400 cursor-not-allowed"
                         }`}
                     >
-                        <img src={googlelogo} alt="Google" className="h-4 w-4 filter brightness-0 invert" />
+                        <img src={googlelogo} alt="Google" className="h-3 w-3 filter brightness-0 invert" />
                         <span>Sign up with Google</span>
                     </button>
 
-                    <div className="text-center pt-4">
+                    <div className="text-center pt-1">
                         <p className="text-gray-400 text-sm">
                             Already have an account?{' '}
                             <button 
