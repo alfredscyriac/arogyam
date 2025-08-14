@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
+
 import backgroundpic from './assets/arogyambg.jpg' 
 import Navbar from './components/Navbar.jsx'
 import LandingPage from './pages/LandingPage'
@@ -10,6 +11,8 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 import EmailVerificationPage from './pages/EmailVerificationPage'
+import LoadingSpinner from './components/LoadingSpinner'
+
 import { Toaster } from 'react-hot-toast'
 import { useAuthStore } from './store/authStore'
 import { useEffect } from 'react'
@@ -51,7 +54,7 @@ function AppContent() {
     checkAuth()
   },[checkAuth]); 
 
-  console.log("isAuthenticated: ", isAuthenticated);
+  if(isCheckingAuth) return <LoadingSpinner/>
 
   return (
     <div className='font-inter min-h-screen w-full bg-cover bg-center bg-fixed bg-no-repeat absolute top-0 left-0' style={{backgroundImage: `url(${backgroundpic})`, filter: 'brightness(0.9)'}}>
