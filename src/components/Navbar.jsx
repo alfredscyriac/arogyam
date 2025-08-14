@@ -2,12 +2,16 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate,  } from 'react-router-dom'
 import logo from '../assets/arogyamlogo.png'
-import { UserPlus, Menu, X } from 'lucide-react'
+import { UserPlus, Menu, X, UserMinus, Loader } from 'lucide-react'
+import { useAuthStore } from '../store/authStore'
+import toast from 'react-hot-toast'
 import '../index.css'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { isAuthenticated, user, logout, isLoading } = useAuthStore(); 
 
   const handleNavItemClick = () => {
     setIsMobileMenuOpen(false);
@@ -48,6 +52,24 @@ const Navbar = () => {
     handleNavItemClick(); 
   }
 
+  const handleAuthButtonClick = async() => {
+    if(isAuthenticated && user.isVerified) {
+      try {
+        await logout(); 
+        toast.success("Successfully logged out"); 
+        navigate('/'); 
+      } catch(error) {
+        toast.error("Error logging out. Please try again.")
+      }
+    } else {
+      navigate('/signin');
+    }
+    handleNavItemClick(); 
+  };
+
+  const buttonText = isAuthenticated ? "Log Out" : "Sign In"; 
+  const ButtonIcon = isAuthenticated ? UserMinus : UserPlus;
+
   return (
     <>
       {/* Large screen view */}
@@ -62,10 +84,14 @@ const Navbar = () => {
             <div className='nav-text' onClick={() => scrollToSection('faq')}>FAQ</div>
         </div>
 
-        <Link to='/signin' className='flex rounded-full font-inter font-light text-white my-auto space-x-2 px-5 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'>
-            <div>Sign In</div>
-            <UserPlus size={20} strokeWidth={1.25}/>
-        </Link>
+        <button 
+          onClick={handleAuthButtonClick}
+          disabled={isLoading}
+          className='flex rounded-full font-inter font-light text-white my-auto space-x-2 px-5 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'
+        >
+            <div>{isLoading ? "Loading..." : buttonText }</div>
+            <ButtonIcon size={20} strokeWidth={1.25}/>
+        </button>
       </div>
 
       {/* Mobile View (anything smaller than large) */}
@@ -94,10 +120,14 @@ const Navbar = () => {
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('about')}>About</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('guide')}>Guide</div>
           <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('faq')}>FAQ</div>
-          <div className='flex max-w-28 items-center justify-center rounded-lg font-inter space-x-2 px-3 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer' onClick={handleNavItemClick}>
-            <div>Sign In</div>
-            <UserPlus size={20} strokeWidth={1.25}/>
-          </div>
+          <button 
+            onClick={handleAuthButtonClick}
+            disabled={isLoading}
+            className='flex max-w-28 items-center justify-center rounded-lg font-inter space-x-2 px-3 py-2 bg-primarygreen hover:bg-secondarygreen transition-colors duration-250 cursor-pointer'
+          >
+            <div>{isLoading ? "Loading..." : buttonText}</div>
+            <ButtonIcon size={20} strokeWidth={1.25}/>
+          </button>
         </div>
       )}
     </>
