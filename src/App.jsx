@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import backgroundpic from './assets/arogyambg.jpg' 
 import Navbar from './components/Navbar.jsx'
 import LandingPage from './pages/LandingPage'
+import Dashboard from './pages/Dashboard'
 import Footer from './components/Footer.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -10,18 +11,54 @@ import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 import EmailVerificationPage from './pages/EmailVerificationPage'
 import { Toaster } from 'react-hot-toast'
+import { useAuthStore } from './store/authStore'
+import { useEffect } from 'react'
+
+const RedirectAuthenticatedUser = ({ children }) => {
+  const { isAuthenticated, user } = useAuthStore(); 
+
+  if(isAuthenticated && user.isVerified) {
+    return <Navigate to='/' replace/>
+  }
+
+  return children; 
+}
 
 
 function AppContent() {
   const location = useLocation()
   const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail'
+  
+  const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore(); 
+
+  useEffect(() => {
+    checkAuth()
+  },[checkAuth]); 
+
+  console.log("isAuthenticated: ", isAuthenticated);
+
   return (
     <div className='font-inter min-h-screen w-full bg-cover bg-center bg-fixed bg-no-repeat absolute top-0 left-0' style={{backgroundImage: `url(${backgroundpic})`, filter: 'brightness(0.9)'}}>
       {!isAuthPage && <Navbar/>}
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
-        <Route path='/signin' element={<SignIn/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>;
+        <Route 
+          path='/signin' 
+          element={
+            <RedirectAuthenticatedUser>
+              <SignIn/>
+            </RedirectAuthenticatedUser>
+          }
+        />
+        <Route 
+          path='/signup' 
+          element={
+            <RedirectAuthenticatedUser>
+              <SignUp/>
+            </RedirectAuthenticatedUser>
+          }
+        />
         <Route path='/verifyemail' element={<EmailVerificationPage/>} />
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
         <Route path='/termsofservice' element={<TermsOfService/>} />
