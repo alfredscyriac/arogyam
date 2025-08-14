@@ -135,7 +135,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
     <p style="color: #e5e5e5; font-size: 16px; margin-bottom: 30px;">Your account is now verified and ready to go! Time to take control of your health and start identifying those hidden harmful ingredients.</p>
     
     <div style="text-align: center; margin: 40px 0;">
-      <a href="https://arogyam.health/dashboard" style="background: linear-gradient(135deg, #00bf63, #0e824a); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.2s ease;">🚀 Go to Dashboard & Start Scanning</a>
+      <a href="http://localhost:5173/dashboard" style="background: linear-gradient(135deg, #00bf63, #0e824a); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.2s ease;">🚀 Go to Dashboard & Start Scanning</a>
     </div>
     
     <div style="background-color: #242424; padding: 20px; margin: 30px 0; border-radius: 8px; text-align: center;">

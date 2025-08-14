@@ -1,4 +1,5 @@
 import React from 'react'
+import '../index.css'
 import { useState } from 'react'
 import { useAuthStore } from '../store/authStore';
 import { Mail, Loader } from 'lucide-react';
@@ -10,8 +11,14 @@ const ForgotPassword = () => {
     const { isLoading, forgotPassword } = useAuthStore(); 
 
     const handleSubmit = async (e) => {
-
-    }
+        e.preventDefault();
+        try {
+            await forgotPassword(email); 
+            setIsSubmitted(true); 
+        } catch (error) {
+            console.log("Error in forgot password:", error);
+        }
+    };
 
     return (
     <div className='min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 font-inter text-white relative'>
