@@ -5,13 +5,15 @@ import logo from '../assets/arogyamlogo.png'
 import googlelogo from '../assets/Googlelogo.webp'
 import { Mail, Lock, Eye, EyeOff, Loader } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../store/authStore';
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState("");
+
+    const { signin, isLoading, error } = useAuthStore();  
     
-    const isLoading = false;
     
     const navigate = useNavigate();
 
@@ -19,8 +21,10 @@ const SignIn = () => {
         navigate('/')
     }
 
-    const handleSignIn = (e) => {
+    const handleSignIn = async (e) => {
         e.preventDefault();
+        await signin(email, password); 
+        navigate('/dashboard');
     }
 
     return (
@@ -87,6 +91,8 @@ const SignIn = () => {
                             Forgot your password?
                         </button>
                     </div>
+
+                    {error && <p className='text-red-400 mt-2'>{error}</p>}
 
                     <button
                         type="submit"
