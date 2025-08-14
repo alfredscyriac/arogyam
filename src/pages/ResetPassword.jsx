@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useAuthStore } from '../store/authStore';
 import { Lock, Loader, EyeOff, Eye} from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 const ResetPassword = () => {
     const [password, setPassword] = useState("");
@@ -18,12 +19,27 @@ const ResetPassword = () => {
     const navigate = useNavigate(); 
 
     const handleSubmit = async (e) => {
+        e.preventDefault(); 
 
-    }
+        if(password !== confirmPassword) {
+            toast.error("Passwords do not match")
+            return; 
+        }
+        try {
+            await resetPassword(token, password); 
+            toast.success("Password reset successfully"); 
+            setTimeout(() => {
+                navigate('/signin');
+            }, 1000); 
+        } catch (error) {
+            console.error(error); 
+            toast.error(error.message || "Error resetting password");
+        }
+    }; 
 
     return (
         <div className='min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 font-inter text-white relative'>
-            <div className='w-full max-w-md space-y-4 mt-6'>
+            <div className='w-full max-w-md space-y-4'>
                 <h1 className='text-xl sm:text-2xl font-semibold'>Reset Password</h1>
 
                 <form onSubmit={handleSubmit} className='space-y-6'>
@@ -65,6 +81,8 @@ const ResetPassword = () => {
                         </button>
                     </div>
 
+                    {error && <p className='text-red-400 mt-2 mb-2'>{error}</p>}
+                    {message && <p className='text-lightgreen mt-2 mb-2'>{message}</p>}
                     <button
                         type="submit"
                         disabled={isLoading}

@@ -22,7 +22,7 @@ const ForgotPassword = () => {
 
     return (
     <div className='min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 font-inter text-white relative'>
-        <div className='w-full max-w-md space-y-4 mt-6'>
+        <div className='w-full max-w-md space-y-4'>
             <h1 className='text-xl sm:text-2xl font-semibold'>Forgot Password?</h1>
 
             {!isSubmitted ? (
