@@ -9,6 +9,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 import EmailVerificationPage from './pages/EmailVerificationPage'
+import { Toaster } from 'react-hot-toast'
 
 
 function AppContent() {
@@ -25,6 +26,7 @@ function AppContent() {
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
         <Route path='/termsofservice' element={<TermsOfService/>} />
       </Routes>
+      <Toaster/>
       {!isAuthPage && <Footer/>}
     </div>
   )
