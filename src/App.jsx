@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 import EmailVerificationPage from './pages/EmailVerificationPage'
+import ForgotPassword from './pages/ForgotPassword'
 import LoadingSpinner from './components/LoadingSpinner'
 
 import { Toaster } from 'react-hot-toast'
@@ -46,7 +47,7 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function AppContent() {
   const location = useLocation()
-  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail'
+  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail' || location.pathname === '/forgotpassword'
   
   const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore(); 
 
@@ -86,6 +87,14 @@ function AppContent() {
           }
         />
         <Route path='/verifyemail' element={<EmailVerificationPage/>} />
+        <Route 
+          path='/forgotpassword' 
+          element={
+            <RedirectAuthenticatedUser>
+              <ForgotPassword/>
+            </RedirectAuthenticatedUser>
+          }
+        />
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
         <Route path='/termsofservice' element={<TermsOfService/>} />
       </Routes>
