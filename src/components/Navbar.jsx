@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link, useNavigate,  } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import logo from '../assets/arogyamlogo.png'
 import { UserPlus, Menu, X, UserMinus, Loader } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
@@ -70,6 +70,9 @@ const Navbar = () => {
   const buttonText = isAuthenticated ? "Log Out" : "Sign In"; 
   const ButtonIcon = isAuthenticated ? UserMinus : UserPlus;
 
+  const location = useLocation(); 
+  const isHome = location.pathname === '/'; 
+
   return (
     <>
       {/* Large screen view */}
@@ -78,11 +81,11 @@ const Navbar = () => {
           <img src={logo} alt="Arogyam Logo" className='h-12'/>
         </button>
 
-        <div className='flex justify-between font-inter text-white my-auto space-x-9'>
+        {isHome && <div className='flex justify-between font-inter text-white my-auto space-x-9'>
           <div className='nav-text' onClick={() => scrollToSection('about')}>About</div>
-            <div className='nav-text' onClick={() => scrollToSection('guide')}>Guide</div>
-            <div className='nav-text' onClick={() => scrollToSection('faq')}>FAQ</div>
-        </div>
+          <div className='nav-text' onClick={() => scrollToSection('guide')}>Guide</div>
+          <div className='nav-text' onClick={() => scrollToSection('faq')}>FAQ</div>
+        </div> }
 
         <button 
           onClick={handleAuthButtonClick}
@@ -117,9 +120,9 @@ const Navbar = () => {
       { /* Mobile Menu Drop Down*/}
       {isMobileMenuOpen && (
         <div className='mobile-menu-enter lg:hidden sticky z-40 space-y-4 top-17 px-5 py-5 w-full bg-black text-white font-inter font-light'>
-          <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('about')}>About</div>
-          <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('guide')}>Guide</div>
-          <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('faq')}>FAQ</div>
+          {isHome && <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('about')}>About</div>}
+          {isHome && <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('guide')}>Guide</div>}
+          {isHome && <div className='cursor-pointer hover:text-lightgreen transition-colors duration-150' onClick={() => scrollToSection('faq')}>FAQ</div>}
           <button 
             onClick={handleAuthButtonClick}
             disabled={isLoading}
