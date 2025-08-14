@@ -1,8 +1,21 @@
 import React from 'react'
 import '../index.css'
 import { User, List, Camera, Brain, Check } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../store/authStore'
 
 const Guide = () => {
+    const navigate = useNavigate(); 
+    const { isAuthenticated, user } = useAuthStore(); 
+
+    const handleClick = () => {
+        if(isAuthenticated && user.isVerified) {
+            navigate('/dashboard'); 
+        } else {
+            navigate('/signin');
+        }
+    };
+
     const steps = [
         {
             icon: <User color="#ffffff" size={25}/>,
@@ -61,7 +74,12 @@ const Guide = () => {
             <div className='text-center'>
                 <p className='text-lg md:text-xl lg:text-3xl text-white font-light'>
                     Ready to start?{' '}
-                    <span className='nav-text font-semibold cursor-pointer'>Create your account</span>
+                    <span
+                        onClick={handleClick} 
+                        className='nav-text font-semibold cursor-pointer'
+                    >
+                        { isAuthenticated ? "Continue to dashboard" : "Create your account"}
+                    </span>
                 </p>
             </div>
 
