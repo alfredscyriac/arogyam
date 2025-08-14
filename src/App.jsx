@@ -12,6 +12,7 @@ import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
 import EmailVerificationPage from './pages/EmailVerificationPage'
 import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 import LoadingSpinner from './components/LoadingSpinner'
 
 import { Toaster } from 'react-hot-toast'
@@ -47,7 +48,7 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function AppContent() {
   const location = useLocation()
-  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail' || location.pathname === '/forgotpassword'
+  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail' || location.pathname === '/forgotpassword' || location.pathname.startsWith('/resetpassword')
   
   const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore(); 
 
@@ -92,6 +93,14 @@ function AppContent() {
           element={
             <RedirectAuthenticatedUser>
               <ForgotPassword/>
+            </RedirectAuthenticatedUser>
+          }
+        />
+        <Route 
+          path='/resetpassword/:token'
+          element={
+            <RedirectAuthenticatedUser>
+              <ResetPassword/>
             </RedirectAuthenticatedUser>
           }
         />
