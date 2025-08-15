@@ -72,11 +72,12 @@ const Navbar = () => {
 
   const location = useLocation(); 
   const isHome = location.pathname === '/'; 
+  const isDash = location.pathname === '/dashboard'; 
 
   return (
     <>
       {/* Large screen view */}
-      <div className='hidden lg:flex justify-between min-h-16 mx-auto mt-3 px-5 w-9/12 rounded-full bg-black sticky top-3 z-50'>
+      <div className={!isDash ? "hidden lg:flex justify-between min-h-16 mx-auto mt-3 px-5 w-9/12 rounded-full bg-black sticky top-3 z-50" : "hidden lg:flex justify-between mx-auto py-5 px-10 w-full bg-black sticky top-0 z-50"}>
         <button onClick={handleLogoClick} className='my-auto cursor-pointer'>
           <img src={logo} alt="Arogyam Logo" className='h-12'/>
         </button>

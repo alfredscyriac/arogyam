@@ -3,6 +3,7 @@ import '../index.css'
 import { useState } from 'react'
 import { useAuthStore } from '../store/authStore';
 import { Mail, Loader } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState(""); 
@@ -17,6 +18,7 @@ const ForgotPassword = () => {
             setIsSubmitted(true); 
         } catch (error) {
             console.log("Error in forgot password:", error);
+            toast.error("Error in request");
         }
     };
 
