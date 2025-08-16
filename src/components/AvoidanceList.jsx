@@ -5,7 +5,7 @@ const AvoidanceList = () => {
     return (
         <div className='bg-white rounded-lg shadow-md p-6 mb-8 font-inter'>
             <div className='flex items-center mb-2'>
-                <AlertCircle className='text-red-500 mr-2' size={20} strokeWidth={2.25}/>
+                <AlertCircle className='text-red-700 mr-2' size={20} strokeWidth={2.25}/>
                 <h2 className='text-xl font-semibold'>Your Avoidance List</h2>
             </div>
             <p className='text-gray-600 mb-4 font-light'>Add ingredients you want to avoid in your products</p>
