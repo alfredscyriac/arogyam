@@ -30,7 +30,7 @@ const ProductScanner = () => {
                 <p className="text-gray-600 text-center mb-2">
                 Or upload a product image
                 </p>
-                <button className="px-4 py-2 bg-gray-200 hover:bg-gray-300 transition-colors duration-200 rounded-lg text-gray-700">
+                <button className="px-4 py-2 bg-gray-200 hover:bg-gray-300 transition-colors duration-200 rounded-lg text-gray-700 cursor-pointer">
                 Choose File
                 </button>
             </div>

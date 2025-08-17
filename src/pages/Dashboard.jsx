@@ -6,7 +6,7 @@ import ProductScanner from '../components/ProductScanner'
 
 const Dashboard = () => {
   return (
-    <div className='w-full flex flex-col min-h-screen font-inter bg-darkazure bg-full '>
+    <div className='w-full flex flex-col min-h-screen font-inter bg-dashbg bg-full '>
       <main className='flex-grow w-full'>
         <div className='container mx-auto px-4 py-8'>
           <DashboardGreeting/>
