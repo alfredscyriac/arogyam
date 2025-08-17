@@ -2,6 +2,7 @@ import React from 'react'
 import '../index.css'
 import DashboardGreeting from '../components/DashboardGreeting'
 import AvoidanceList from '../components/AvoidanceList'
+import ProductScanner from '../components/ProductScanner'
 
 const Dashboard = () => {
   return (
@@ -11,6 +12,9 @@ const Dashboard = () => {
           <DashboardGreeting/>
           <div className='grid grid-cols-1 gap-8'>
             <AvoidanceList/>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              <ProductScanner/>
+            </div>
           </div>
         </div>
       </main>

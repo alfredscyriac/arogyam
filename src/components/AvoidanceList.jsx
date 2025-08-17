@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import '../index.css'
 import { Plus, X, AlertCircle} from 'lucide-react'
 import { useDashboardStore } from '../store/dashboardStore'
 import { toast } from 'react-hot-toast';
@@ -25,7 +26,7 @@ const AvoidanceList = () => {
         );
         
         if (isDuplicate) {
-            toast.error("Ingredient already in your avoidance list");
+            toast.error("Duplicate ingredient");
             return;
         }
 
@@ -33,7 +34,7 @@ const AvoidanceList = () => {
         try {
             await addIngredient(trimmedInput); 
             setInputValue(''); 
-            toast.success("Ingredient added successfully!"); 
+            toast.success("Ingredient added successfully"); 
         } catch (error) {
             toast.error("Failed to add ingredient");
         }
@@ -42,7 +43,7 @@ const AvoidanceList = () => {
     const handleRemoveIngredient = async (ingredientToRemove) => {  
         try {
             await removeIngredient(ingredientToRemove); 
-            toast.success("Ingredient removed successfully!");
+            toast.success("Ingredient removed successfully");
         } catch (error) {
             toast.error("Failed to remove ingredient");
         }
@@ -82,7 +83,7 @@ const AvoidanceList = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className='flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primarygreen focus:border-primarygreen disabled:bg-gray-100' 
+                    className='flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-1 focus:ring-primarygreen focus:border-primarygreen disabled:bg-gray-100' 
                 />
                 <button
                     onClick={handleAddIngredient}
