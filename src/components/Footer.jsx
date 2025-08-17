@@ -99,8 +99,16 @@ const Footer = () => {
                                     Terms of Service
                                 </Link>
                             </li>
-                            <li className='text-gray-300 hover:text-lightgreen transition-colors'>Provide Feedback</li>
-                            <li className='text-gray-300 hover:text-lightgreen transition-colors'>Create a Ticket</li>
+                            <li >
+                                <Link to='/providefeedback' className='text-gray-300 hover:text-lightgreen transition-colors'>
+                                    Provide Feedback
+                                </Link>
+                            </li>
+                            <li >
+                                <Link to='/createticket' className='text-gray-300 hover:text-lightgreen transition-colors'>
+                                    Create a Ticket
+                                </Link>
+                            </li>
                         </ul>
                 </div>
             </div>

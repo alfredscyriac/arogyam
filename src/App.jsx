@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard'
 import Footer from './components/Footer.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import ProvideFeedback from './pages/ProvideFeedback'
+import CreateTicket from './pages/CreateTicket'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ScrollToTop from './components/ScrollToTop'
@@ -106,6 +108,8 @@ function AppContent() {
         />
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
         <Route path='/termsofservice' element={<TermsOfService/>} />
+        <Route path='/providefeedback' element={<ProvideFeedback/>} />
+        <Route path='/createticket' element={<CreateTicket/>} />
       </Routes>
       <Toaster/>
       {!isAuthPage && <Footer/>}
