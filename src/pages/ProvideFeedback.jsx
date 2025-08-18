@@ -10,6 +10,9 @@ const ProvideFeedback = () => {
     
         formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
     
+        const originalSubject = formData.get("subject");
+        formData.set("subject", `[FEEDBACK] ${originalSubject}`);
+
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
     
@@ -49,25 +52,26 @@ const ProvideFeedback = () => {
 
             <div className='prose prose-lg max-w-none text-white space-y-6'>
                 <form className='space-y-6' onSubmit={onSubmit}>
+                    <input type="hidden" name="form_type" value="feedback" />
                     <input 
                         type='text'
                         name='name'
                         required 
-                        placeholder='Enter your name'
+                        placeholder='Enter name'
                         className='w-full px-4 py-3 border border-gray-100 bg-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-500'
                     />
                     <input 
                         type='email'
                         name='email'
                         required 
-                        placeholder='Enter your email'
+                        placeholder='Enter email'
                         className='w-full px-4 py-3 border border-gray-100 bg-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-500'
                     />
                     <input 
                         type='text'
                         name='subject'
                         required 
-                        placeholder='Enter email subject'
+                        placeholder='Enter subject'
                         className='w-full px-4 py-3 border border-gray-100 bg-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightgreen focus:border-transparent placeholder-gray-500'
                     />
                     <textarea
