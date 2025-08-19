@@ -1,8 +1,34 @@
 import React, { useState } from 'react'
 import { Camera, Upload, Loader } from 'lucide-react'
+import { QrReader } from 'react-qr-barcode-scanner'; 
+import { toast } from 'react-hot-toast';
 
 const ProductScanner = () => {
     const [isScanning, setIsScanning] = useState(false); 
+    const [scannedData, setScannedData] = useState(null); 
+
+    const handleStartScan = () => {
+        setIsScanning(true); 
+        setScannedData(null); 
+    };
+
+    const handleStopScan = () => {
+        setIsScanning(false); 
+    }; 
+
+    const handleScanResult = () => {
+        if (result) {
+            setScannedData(result.text); 
+            setIsScanning(false); 
+            console.log('Scanned barcode:', result.text); 
+        }
+    };
+
+    const handleScanError = (error) => {
+        console.error('Scanner error', error); 
+        setIsScanning(false); 
+    };
+
     return (
     <div className='bg-white rounded-lg shadow-md p-6 mb-8'>
         <h2 className='text-xl font-semibold mb-4'>Scan Product</h2>
