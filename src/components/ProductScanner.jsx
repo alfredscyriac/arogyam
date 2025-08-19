@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Camera, Upload, Loader } from 'lucide-react'
-import { QrReader } from 'react-qr-barcode-scanner'; 
+import BarcodeScanner from "react-qr-barcode-scanner";
 import { toast } from 'react-hot-toast';
 
 const ProductScanner = () => {
@@ -16,17 +16,22 @@ const ProductScanner = () => {
         setIsScanning(false); 
     }; 
 
-    const handleScanResult = () => {
-        if (result) {
-            setScannedData(result.text); 
-            setIsScanning(false); 
-            console.log('Scanned barcode:', result.text); 
+    const handleScanUpdate = (err, result) => {
+        if (err) {
+            console.error('Scan error:', err);
+            if (err.name === "NotAllowedError") {
+                toast.error('Camera access denied');
+                setIsScanning(false);
+            }
+            return;
         }
-    };
-
-    const handleScanError = (error) => {
-        console.error('Scanner error', error); 
-        setIsScanning(false); 
+        
+        if (result) {
+            setScannedData(result.text);  // ✅ Uses result.text
+            setIsScanning(false);
+            toast.success(`Barcode scanned: ${result.text}`);
+            console.log('Scanned barcode:', result.text);
+        }
     };
 
     return (
