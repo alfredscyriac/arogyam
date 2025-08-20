@@ -112,15 +112,18 @@ const ProductScanner = () => {
 
                     <button
                         onClick={isScanning ? handleStopScan : handleStartScan}
-                        disabled={false}
+                        disabled={activeMethod === 'manual'}
                         className={`mt-4 px-6 py-3 rounded-lg flex items-center justify-center w-full transition-colors duration-200 ${
                             isScanning 
                             ? 'bg-red-500 hover:bg-red-600 text-white cursor-pointer' 
+                            : activeMethod === 'manual'
+                            ? 'bg-gray-400 cursor-not-allowed text-gray-600'
                             : 'bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer'
                         }`}
                     >
                         <Camera className='mr-2' size={20} strokeWidth={1.5}/>
-                        {isScanning ? "Stop Scanning" : "Scan Product"}
+                        {isScanning ? "Stop Scanning" : 
+                        activeMethod === 'manual' ? "Clear Manual Entry First" : "Scan Product"}
                     </button>
                 </div>
                 
