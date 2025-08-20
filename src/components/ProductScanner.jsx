@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Camera, SquarePen } from 'lucide-react'
+import { Camera, SquarePen, Plus } from 'lucide-react'
 import BarcodeScanner from "react-qr-barcode-scanner"
 import { toast } from 'react-hot-toast'
 
@@ -29,7 +29,6 @@ const ProductScanner = () => {
         if (result) {
             setScannedData(result.text);
             setIsScanning(false);
-            toast.success(`Barcode scanned: ${result.text}`);
             console.log('Scanned barcode:', result.text);
         }
     };
@@ -84,14 +83,22 @@ const ProductScanner = () => {
                     </button>
                 </div>
                 
-                <div className="w-full md:w-1/2 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center p-6">
-                    <SquarePen className="text-gray-400 mb-2" size={42}/>
-                    <p className="text-gray-600 text-center mb-2">
+                <div className="w-full md:w-1/2 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center p-6 space-y-4">
+                    <SquarePen className="text-gray-400" size={42}/>
+                    <p className="text-gray-600 text-center">
                         Or manually enter barcode
                     </p>
-                    <button className="px-4 py-2 bg-gray-200 hover:bg-gray-300 transition-colors duration-200 rounded-lg text-gray-700 cursor-pointer">
-                        Choose File
-                    </button>
+                    <div className='flex'>
+                        <input 
+                            placeholder='Enter barcode'
+                            className='flex-grow px-4 py-2 border border-gray-300 rounded-l-lg disabled:bg-gray-100' 
+                        />
+                        <button
+                            className={`px-4 py-2 rounded-r-lg flex items-center transition-colors duration-300 bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer`} 
+                        >
+                            <Plus size={20}/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
