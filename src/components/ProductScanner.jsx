@@ -129,17 +129,48 @@ const ProductScanner = () => {
                     <p className="text-gray-600 text-center">
                         Or manually enter barcode
                     </p>
-                    <div className='flex justify-center max-w-3/4'>
+
+                    { activeMethod === 'manual' && scannedData && (
+                        <div className='text-center p-3 bg-green-50 border border-green-200 rounded-lg w-full'>
+                            <div className='text-white text-sm mb-1'>Manual Barcode:</div>
+                            <div className='font-mono text-lg text-primarygreen break-all'>{scannedData}</div>
+                        </div>
+                    )}
+
+                    <div className='flex justify-center w-full max-w-sm'>
                         <input 
+                            value={manualBarcode}
+                            onChange={(e) => setManualBarcode(e.target.value)}
+                            onKeyPress={handleKeyPress}
                             placeholder='Enter barcode'
-                            className='flex-grow px-3 py-2 border border-gray-300 rounded-l-lg disabled:bg-gray-100' 
+                            disabled={activeMethod === 'scan' || isScanning }
+                            className='flex-grow px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primarygreen focus:border-primarygreen disabled:bg-gray-100 disabled:cursor-not-allowed' 
                         />
                         <button
-                            className='px-3 py-2 rounded-r-lg flex items-center transition-colors duration-300 bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer' 
+                            onClick={handleManualSubmit}
+                            disabled={!manualBarcode.trim() || activeMethod === 'scan' || isScanning }
+                            className={`px-3 py-2 rounded-r-lg flex items-center transition-colors duration-300 ${
+                                manualBarcode.trim() && activeMethod !== 'scan' && !isScanning
+                                ? 'bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            }`}
                         >
                             <Plus size={20}/>
                         </button>
                     </div>
+
+                    { activeMethod === 'manual' && (
+                        <button
+                            onClick={() => {
+                                setManualBarcode(''); 
+                                setScannedData(null); 
+                                setActiveMethod(null); 
+                            }}
+                            className='mt-2 text-center text-white py-2 w-full flex items-center justify-center rounded-lg  bg-red-500 hover:bg-red-600 transition-colors duration-200 cursor-pointer'
+                        >
+                            Clear Manual Entry
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
