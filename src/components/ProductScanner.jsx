@@ -11,8 +11,13 @@ const ProductScanner = () => {
     const [activeMethod, setActiveMethod] = useState(null)
 
     const handleStartScan = () => {
+        if(activeMethod === 'manual') {
+            toast.error("Clear manual barcode first"); 
+            return; 
+        }
         setIsScanning(true);
         setScannedData(null);
+        setActiveMethod('scan');
     };
 
     const handleStopScan = () => {
@@ -25,6 +30,7 @@ const ProductScanner = () => {
             if (err.name === "NotAllowedError") {
                 toast.error('Camera access denied');
                 setIsScanning(false);
+                setActiveMethod(null); 
             }
             return;
         }
@@ -32,6 +38,7 @@ const ProductScanner = () => {
         if (result) {
             setScannedData(result.text);
             setIsScanning(false);
+            setActiveMethod('scan'); 
             console.log('Scanned barcode:', result.text);
         }
     };
