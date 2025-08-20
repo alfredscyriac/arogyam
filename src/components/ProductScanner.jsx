@@ -7,6 +7,9 @@ const ProductScanner = () => {
     const [isScanning, setIsScanning] = useState(false);
     const [scannedData, setScannedData] = useState(null);
 
+    const [manualBarcode, setManualBarcode] = useState(''); 
+    const [activeMethod, setActiveMethod] = useState(null)
+
     const handleStartScan = () => {
         setIsScanning(true);
         setScannedData(null);
@@ -30,6 +33,37 @@ const ProductScanner = () => {
             setScannedData(result.text);
             setIsScanning(false);
             console.log('Scanned barcode:', result.text);
+        }
+    };
+
+    const handleManualSubmit = () => {
+        const trimmedBarcode = manualBarcode.trim(); 
+
+        if(!trimmedBarcode) {
+            toast.error("Enter a barcode");
+            return; 
+        }
+
+        if(trimmedBarcode.length < 8) {
+            toast.error("Barcode too short");
+            return; 
+        }
+
+        setScannedData(trimmedBarcode); 
+        setActiveMethod('manual'); 
+        console.log('Manual barcode: ', trimmedBarcode); 
+    };
+
+    const handleClearAll = () => {
+        setScannedData(null); 
+        setManualBarcode('');
+        setActiveMethod(null); 
+        setIsScanning(false); 
+    }; 
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleManualSubmit();
         }
     };
 
@@ -88,13 +122,13 @@ const ProductScanner = () => {
                     <p className="text-gray-600 text-center">
                         Or manually enter barcode
                     </p>
-                    <div className='flex'>
+                    <div className='flex justify-center max-w-3/4'>
                         <input 
                             placeholder='Enter barcode'
-                            className='flex-grow px-4 py-2 border border-gray-300 rounded-l-lg disabled:bg-gray-100' 
+                            className='flex-grow px-3 py-2 border border-gray-300 rounded-l-lg disabled:bg-gray-100' 
                         />
                         <button
-                            className={`px-4 py-2 rounded-r-lg flex items-center transition-colors duration-300 bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer`} 
+                            className='px-3 py-2 rounded-r-lg flex items-center transition-colors duration-300 bg-primarygreen hover:bg-secondarygreen text-white cursor-pointer' 
                         >
                             <Plus size={20}/>
                         </button>

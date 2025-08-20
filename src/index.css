@@ -7,16 +7,7 @@
   --color-secondarygreen: #0e824a; 
   --color-lightgreen: #72c49c;
   --color-darkazure: #0b142c;
-  --color-dashbg: linear-gradient(
-    135deg,
-    #0b142c 0%,     
-    #1f3a4a 20%,    
-    #0c6a3e 40%,    
-    #00a856 60%,    
-    #66b28d 80%,    
-    #9e3f5e 100%    
-  );
-  
+  --color-dashbg: linear-gradient(135deg, #0b142c 0%, #1f3a4a 20%, #0c6a3e 40%, #00a856 60%, #66b28d 80%, #9e3f5e 100% );
 }
 
 .nav-text {
