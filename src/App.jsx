@@ -16,6 +16,7 @@ import EmailVerificationPage from './pages/EmailVerificationPage'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import LoadingSpinner from './components/LoadingSpinner'
+import NotFoundPage from './pages/NotFoundPage'
 
 import { Toaster } from 'react-hot-toast'
 import { useAuthStore } from './store/authStore'
@@ -50,8 +51,30 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function AppContent() {
   const location = useLocation()
-  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail' || location.pathname === '/forgotpassword' || location.pathname.startsWith('/resetpassword')
+
+  const isValidRoute = (pathname) => {
+    const validRoutes = [
+      '/',
+      '/dashboard',
+      '/signin', 
+      '/signup',
+      '/verifyemail',
+      '/forgotpassword',
+      '/privacypolicy',
+      '/termsofservice',
+      '/providefeedback',
+      '/createticket'
+    ]; 
+
+    if (validRoutes.includes(pathname)) return true; 
+
+    if (pathname.startsWith('/resetpassword')) return true; 
+
+    return false;
+  }
   
+  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/verifyemail' || location.pathname === '/forgotpassword' || location.pathname.startsWith('/resetpassword') || !isValidRoute(location.pathname); 
+
   const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore(); 
 
   useEffect(() => {
@@ -110,6 +133,7 @@ function AppContent() {
         <Route path='/termsofservice' element={<TermsOfService/>} />
         <Route path='/providefeedback' element={<ProvideFeedback/>} />
         <Route path='/createticket' element={<CreateTicket/>} />
+        <Route path='*' element={<NotFoundPage/>}/> 
       </Routes>
       <Toaster/>
       {!isAuthPage && <Footer/>}
