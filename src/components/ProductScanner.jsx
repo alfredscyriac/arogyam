@@ -92,7 +92,7 @@ const ProductScanner = () => {
                             </>
                         ) : scannedData ? (
                             <div className='text-center p-4'>
-                                <div className='text-white text-sm mb-2'>Scanned Barcode:</div>
+                                <div className='text-white text-sm mb-2'>Barcode:</div>
                                 <div className='text-primarygreen font-mono text-lg break-all'>{scannedData}</div>
                             </div>
                         ) : (
@@ -132,13 +132,6 @@ const ProductScanner = () => {
                     <p className="text-gray-600 text-center">
                         Or manually enter barcode
                     </p>
-
-                    { activeMethod === 'manual' && scannedData && (
-                        <div className='text-center p-3 bg-green-50 border border-green-200 rounded-lg w-full'>
-                            <div className='text-white text-sm mb-1'>Manual Barcode:</div>
-                            <div className='font-mono text-lg text-primarygreen break-all'>{scannedData}</div>
-                        </div>
-                    )}
 
                     <div className='flex justify-center w-full max-w-sm'>
                         <input 
