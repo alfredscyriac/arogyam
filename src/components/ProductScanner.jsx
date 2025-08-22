@@ -22,6 +22,7 @@ const ProductScanner = () => {
 
     const handleStopScan = () => {
         setIsScanning(false);
+        setActiveMethod(null);
     };
 
     const handleScanUpdate = (err, result) => {
@@ -103,7 +104,10 @@ const ProductScanner = () => {
                     {scannedData && (
                         <button
                             className='mt-2 text-center text-white py-2 w-full flex items-center justify-center rounded-lg  bg-red-500 hover:bg-red-600 transition-colors duration-200 cursor-pointer'
-                            onClick={() => setScannedData(null)}
+                            onClick={() => {
+                                setScannedData(null); 
+                                setActiveMethod(null);
+                            }}
                         >
                             Clear result
                         </button>
