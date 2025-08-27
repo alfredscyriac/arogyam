@@ -100,19 +100,6 @@ const ProductScanner = () => {
                             <Camera className='text-gray-400' size={64}/>
                         )}
                     </div>
-                    
-                    {scannedData && (
-                        <button
-                            className='mt-2 text-center text-white py-2 w-full flex items-center justify-center rounded-lg  bg-red-500 hover:bg-red-600 transition-colors duration-200 cursor-pointer'
-                            onClick={() => {
-                                setScannedData(null); 
-                                setActiveMethod(null);
-                            }}
-                        >
-                            Clear result
-                        </button>
-
-                    )}
 
                     <button
                         onClick={isScanning ? handleStopScan : handleStartScan}
@@ -158,21 +145,18 @@ const ProductScanner = () => {
                             <Plus size={20}/>
                         </button>
                     </div>
-
-                    { activeMethod === 'manual' && (
-                        <button
-                            onClick={() => {
-                                setManualBarcode(''); 
-                                setScannedData(null); 
-                                setActiveMethod(null); 
-                            }}
-                            className='mt-2 text-center text-white py-2 w-full flex items-center justify-center rounded-lg  bg-red-500 hover:bg-red-600 transition-colors duration-200 cursor-pointer'
-                        >
-                            Clear Manual Entry
-                        </button>
-                    )}
                 </div>
             </div>
+            { scannedData && (
+                <div className="flex justify-center mt-6">
+                    <button
+                        onClick={handleClearAll}
+                        className="w-full font-medium px-8 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200 cursor-pointer"
+                    >
+                        Clear Barcode
+                    </button>
+                </div>
+            )}
         </div>
     )
 }
