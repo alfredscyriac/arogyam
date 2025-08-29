@@ -18,11 +18,12 @@ const About = () => {
             {/* Cards Container */}
             <div className='flex flex-col lg:flex-row gap-6 lg:gap-8'>
                 <div className='flex-1 bg-gradient-to-br from-red-900 to-orange-600 rounded-2xl p-4 md:p-8'>
-                    <div className='font-inter font-normal text-white text-justify text-[12px] md:text-[14px] lg:text-[17px]'>Healthcare professionals give proper advice, 
-                    but the consumer market makes it impossible to follow. Companies make products with lengthy ingredients lists and use 
-                    technical names to hide what they truly are. Someone with celiac disease may be eating on a strict gluten-free 
-                    diet but may never realize that they are coming into constant contact with gluten as their eyeliner actually contains gluten 
-                    disguised as “hydrolyzed wheat protein.”</div>
+                    <div className='font-inter font-normal text-white text-justify text-[12px] md:text-[14px] lg:text-[17px]'>
+                    Healthcare professionals give proper advice, but the consumer market makes it impossible to follow. Companies make 
+                    products with lengthy ingredients lists and use technical names to hide what they truly are. A person with diabetes 
+                    might carefully track their sugar intake, only to discover that the “low-fat” yogurt they eat every morning is packed 
+                    with hidden sugars under names like “dextrose” and “fruit concentrate.” One wrong label could spike their blood sugar.
+                    </div>
                 </div>
 
                 <div className='flex-1 bg-gradient-to-br from-emerald-500 to-teal-800 rounded-2xl p-4 md:p-8'>
