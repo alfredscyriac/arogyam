@@ -9,7 +9,7 @@ const Faq = () => {
         {
             id: 1,
             question: "What products can I scan?",
-            answer: "You can scan any product with a barcode whether that be food, cosmetics, medications, supplemenets, or household products. Our database includes millions of products from major retailers and is constantly growing"
+            answer: "You can scan any food product with a barcode. In the future we hope to expand this capability to cosmetics, medications, supplemenets, and household products. Currently, we use OpenFoodFact's database which includes millions of products from major retailers and is constantly growing."
         }, 
         {
             id: 2, 
@@ -24,12 +24,12 @@ const Faq = () => {
         {
             id: 4, 
             question: "What if a product isn't found when I scan it?", 
-            answer: "We're constantly updating our database. If a product is not found, we will try our best to add that product to our database as soon as possible."
+            answer: "If a product is not found, we will try our best to add that product to our database as soon as possible. We're constantly making efforts to grow our database and you can help us greatly in this process. Feel free to use the \"Create a Ticket\" option located in the footer to notify us of any missing products. We appreciate all your help and support to grow Arogyam!"
         },
         {
             id: 5, 
             question: "Can I add custom ingredients to avoid?", 
-            answer:"Absolutely! You can add any ingredient or chemical compound to your avoidance list, whether it's a common allergen or something specific to your condition(s)."
+            answer:"Absolutely! You can add any ingredient or chemical compound to your avoidance list, whether it's a common allergen, religious obligation, or something specific to your condition(s)."
         },
         {
             id: 6,
