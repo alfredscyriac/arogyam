@@ -103,7 +103,6 @@ const ProductScanner = () => {
                 }
             }
         };
-
         fetchProduct();
     }, [scannedData, fetchProductInfo]);
 
