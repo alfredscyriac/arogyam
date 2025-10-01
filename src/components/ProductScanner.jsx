@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Camera, SquarePen, Plus } from 'lucide-react'
 import BarcodeScanner from "react-qr-barcode-scanner"
 import { toast } from 'react-hot-toast'
+import { useProductStore } from '../store/productStore'
 
 const ProductScanner = () => {
     const [isScanning, setIsScanning] = useState(false);
     const [scannedData, setScannedData] = useState(null);
 
-    const [manualBarcode, setManualBarcode] = useState(''); 
-    const [activeMethod, setActiveMethod] = useState(null)
+    const [manualBarcode, setManualBarcode] = useState('');
+    const [activeMethod, setActiveMethod] = useState(null);
+
+    const { fetchProductInfo } = useProductStore();
 
     const handleStartScan = () => {
         if(activeMethod === 'manual') {
@@ -75,6 +78,35 @@ const ProductScanner = () => {
         }
     };
 
+    useEffect(() => {
+        const fetchProduct = async () => {
+            if (scannedData) {
+                const loadingToast = toast.loading('Fetching product information...');
+
+                try {
+                    const result = await fetchProductInfo(scannedData);
+
+                    toast.dismiss(loadingToast);
+
+                    if (result.success && result.product) {
+                        console.log('Ingredients:', result.product.ingredients);
+                        toast.success(`Found: ${result.product.name}`, { duration: 3000 });
+                    } else if (result.message === 'Product not found in database') {
+                        toast.error('Barcode not found. Try a different product.', { duration: 4000 });
+                    } else {
+                        toast.error(result.message || 'Unable to fetch product', { duration: 4000 });
+                    }
+                } catch (err) {
+                    toast.dismiss(loadingToast);
+                    console.error('Error fetching product:', err);
+                    toast.error('Network error. Please try again.', { duration: 4000 });
+                }
+            }
+        };
+
+        fetchProduct();
+    }, [scannedData, fetchProductInfo]);
+
     return (
         <div className='bg-white rounded-lg shadow-md p-6 mb-8 font-inter'>
             <h2 className='text-xl font-semibold mb-4'>Scan Product</h2>
@@ -128,7 +160,7 @@ const ProductScanner = () => {
                         <input 
                             value={manualBarcode}
                             onChange={(e) => setManualBarcode(e.target.value)}
-                            onKeyPress={handleKeyPress}
+                            onKeyDown={handleKeyPress}
                             placeholder='Enter barcode'
                             disabled={activeMethod === 'scan' || isScanning }
                             className='flex-grow px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primarygreen focus:border-primarygreen disabled:bg-gray-100 disabled:cursor-not-allowed' 
