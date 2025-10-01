@@ -27,7 +27,9 @@ export const analyzeSafety = async(req, res) => {
         make sure each and every single ingredient is evaluated carefully amongst all the user's avoidances)
         2. Caclulate a safety score from 0-100 (0 = extremely unsafe for the user, 100 = completely safe for the user)
         3. Provide a brief explanation (2-3 sentences max) on why the product is or is not safe for the user. If there 
-        are any technical markups or coverups please make that obvious in the response so the user can indentify it. 
+        are any technical markups or coverups please make that obvious in the response so the user can indentify it.
+        The explanation is to the user so make it feel personal to the individual rather than saying something along the lines of
+        "this product is safe/unsafe for the user" 
         4. List any matching harmful ingredients found
         
         **Response Format (JSON only, no markdown):**

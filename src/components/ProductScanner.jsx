@@ -4,6 +4,9 @@ import BarcodeScanner from "react-qr-barcode-scanner"
 import { toast } from 'react-hot-toast'
 import { useProductStore } from '../store/productStore'
 
+import { useAIStore } from '../store/aiStore';
+import { useDashboardStore } from '../store/dashboardStore';
+
 const ProductScanner = () => {
     const [isScanning, setIsScanning] = useState(false);
     const [scannedData, setScannedData] = useState(null);
@@ -12,6 +15,9 @@ const ProductScanner = () => {
     const [activeMethod, setActiveMethod] = useState(null);
 
     const { fetchProductInfo } = useProductStore();
+
+    const { analyzeSafety, isAnalyzing } = useAIStore();
+    const { avoidanceList } = useDashboardStore();
 
     const handleStartScan = () => {
         if(activeMethod === 'manual') {
@@ -91,6 +97,17 @@ const ProductScanner = () => {
                     if (result.success && result.product) {
                         console.log('Ingredients:', result.product.ingredients);
                         toast.success(`Found: ${result.product.name}`, { duration: 3000 });
+
+                        // TEST AI ANALYSIS
+                        console.log('Starting AI analysis...');
+                        const aiResult = await analyzeSafety(
+                            result.product.ingredients,
+                            avoidanceList,
+                            result.product.name
+                        );
+
+                        console.log('AI Analysis Result:', aiResult);
+
                     } else if (result.message === 'Product not found in database') {
                         toast.error('Barcode not found. Try a different product.', { duration: 4000 });
                     } else {
@@ -104,7 +121,7 @@ const ProductScanner = () => {
             }
         };
         fetchProduct();
-    }, [scannedData, fetchProductInfo]);
+    }, [scannedData, fetchProductInfo, analyzeSafety, avoidanceList]);
 
     return (
         <div className='bg-white rounded-lg shadow-md p-6 mb-8 font-inter'>
