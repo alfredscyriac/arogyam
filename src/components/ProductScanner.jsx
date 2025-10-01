@@ -14,9 +14,9 @@ const ProductScanner = () => {
     const [manualBarcode, setManualBarcode] = useState('');
     const [activeMethod, setActiveMethod] = useState(null);
 
-    const { fetchProductInfo } = useProductStore();
+    const { fetchProductInfo, clearProductInfo } = useProductStore();
 
-    const { analyzeSafety, isAnalyzing } = useAIStore();
+    const { analyzeSafety, clearAnalysis } = useAIStore();
     const { avoidanceList } = useDashboardStore();
 
     const handleStartScan = () => {
@@ -48,8 +48,7 @@ const ProductScanner = () => {
         if (result) {
             setScannedData(result.text);
             setIsScanning(false);
-            setActiveMethod('scan'); 
-            console.log('Scanned barcode:', result.text);
+            setActiveMethod('scan');
         }
     };
 
@@ -66,16 +65,17 @@ const ProductScanner = () => {
             return; 
         }
 
-        setScannedData(trimmedBarcode); 
+        setScannedData(trimmedBarcode);
         setActiveMethod('manual'); 
-        console.log('Manual barcode: ', trimmedBarcode); 
     };
 
     const handleClearAll = () => {
-        setScannedData(null); 
+        setScannedData(null);
         setManualBarcode('');
-        setActiveMethod(null); 
-        setIsScanning(false); 
+        setActiveMethod(null);
+        setIsScanning(false);
+        clearProductInfo();
+        clearAnalysis();
     }; 
 
     const handleKeyPress = (e) => {
@@ -95,19 +95,14 @@ const ProductScanner = () => {
                     toast.dismiss(loadingToast);
 
                     if (result.success && result.product) {
-                        console.log('Ingredients:', result.product.ingredients);
                         toast.success(`Found: ${result.product.name}`, { duration: 3000 });
 
-                        // TEST AI ANALYSIS
-                        console.log('Starting AI analysis...');
-                        const aiResult = await analyzeSafety(
+                        // Trigger AI safety analysis
+                        await analyzeSafety(
                             result.product.ingredients,
                             avoidanceList,
                             result.product.name
                         );
-
-                        console.log('AI Analysis Result:', aiResult);
-
                     } else if (result.message === 'Product not found in database') {
                         toast.error('Barcode not found. Try a different product.', { duration: 4000 });
                     } else {
@@ -124,11 +119,11 @@ const ProductScanner = () => {
     }, [scannedData, fetchProductInfo, analyzeSafety, avoidanceList]);
 
     return (
-        <div className='bg-white rounded-lg shadow-md p-6 mb-8 font-inter'>
+        <div className={`bg-white rounded-lg shadow-md p-6 font-inter flex flex-col ${scannedData ? 'min-h-[500px] justify-between' : 'min-h-[300px]'}`}>
             <h2 className='text-xl font-semibold mb-4'>Scan Product</h2>
-            <div className='flex flex-col md:flex-row gap-6'>
-                <div className='w-full md:w-1/2 flex flex-col items-center'>
-                    <div className='w-full aspect-video bg-gray-900 rounded-lg flex items-center justify-center relative overflow-hidden'>
+            <div className='flex flex-col md:flex-row gap-6 flex-grow'>
+                <div className='w-full md:w-1/2 flex flex-col items-center flex-grow'>
+                    <div className='w-full flex-grow bg-gray-900 rounded-lg flex items-center justify-center relative overflow-hidden min-h-[200px]'>
                         {isScanning ? (
                             <>
                                 <BarcodeScanner
