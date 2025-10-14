@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axios from 'axios'; 
 import toast from "react-hot-toast";
 import { i } from "motion/react-client";
+import { m } from "motion/react";
 
 const API_URL = 'http://localhost:3001/api/watchlist'; 
 
@@ -25,4 +26,21 @@ export const useWatchlistStore = create((set) => ({
             toast.error("Failed to load watchlist"); 
         }
     },
+
+    addToWatchlist: async (productData) => {
+        set({ isLoading: true, error: null}); 
+        try {
+            const response = await axios.post(`${API_URL}/add`, productData); 
+            set({ unsafeProducts: response.data.unsafeProducts, isLoading: false }); 
+            toast.success("Product saved"); 
+            return { success: true }; 
+        } catch (error) {
+            const message = error.response?.data?.message || "Failed to add to watchlist"; 
+            set({ error: message, isLoading: false}); 
+            toast.error(message); 
+            return { success: false }; 
+        }
+    },
+
+    
 }))
