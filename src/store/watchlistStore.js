@@ -1,8 +1,6 @@
 import { create } from "zustand";
 import axios from 'axios'; 
 import toast from "react-hot-toast";
-import { i } from "motion/react-client";
-import { m } from "motion/react";
 
 const API_URL = 'http://localhost:3001/api/watchlist'; 
 

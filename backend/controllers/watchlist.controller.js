@@ -3,7 +3,7 @@ import { User } from '../models/user.model.js';
 export const addToWatchlist = async (req, res) => {
     try {
         const userId= req.userId; 
-        const { productName, barcode, imageUrl, matchedIngredients, safetyScore } = req.body(); 
+        const { productName, barcode, imageUrl, matchedIngredients, safetyScore } = req.body; 
 
         if(!productName || !barcode || !matchedIngredients) {
             return res.status(400).json({ success: false, message: "Missing required fields" }); 
@@ -69,7 +69,7 @@ export const getWatchlist = async (req, res) => {
     try {
         const userId = req.userId; 
 
-        const user = User.findById(userId);
+        const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found" });
         } 

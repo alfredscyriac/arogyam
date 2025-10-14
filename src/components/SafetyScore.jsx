@@ -7,11 +7,11 @@ const SafetyScore = ({ analysis, isAnalyzing, productScanned, productInfo }) => 
   const { addToWatchlist } = useWatchlistStore(); 
 
   const handleSaveToWatchlist = async () => {
-    if (!analysis || !productInfo) return;
+    if (!analysis || !productInfo || !productInfo.product) return;
     const watchlistData = {
-      productName: productInfo.productName,
-      barcode: productInfo.barcode,
-      imageUrl: productInfo.imageUrl,
+      productName: productInfo.product.name,
+      barcode: productInfo.product.barcode,
+      imageUrl: productInfo.product.imageUrl,
       matchedIngredients: analysis.matchedIngredients,
       safetyScore: analysis.safetyScore
     };

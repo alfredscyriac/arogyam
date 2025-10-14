@@ -19,7 +19,7 @@ const Dashboard = () => {
       <main className='flex-grow w-full'>
         <div className='container mx-auto px-4 py-8'>
           <DashboardGreeting/>
-          <div className='grid grid-cols-1 gap-8'>
+          <div className='grid grid-cols-1 gap-8 mb-16'>
             <AvoidanceList/>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
               <ProductScanner/>
@@ -30,8 +30,8 @@ const Dashboard = () => {
                 productInfo={productInfo}
               />
             </div>
-            <UnsafeProductsHistory/>
           </div>
+          <UnsafeProductsHistory/>
         </div>
       </main>
     </div>

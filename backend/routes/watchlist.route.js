@@ -5,7 +5,7 @@ import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router(); 
 
 router.get('/', verifyToken, getWatchlist); 
-router.get('/add', verifyToken, addToWatchlist); 
-router.get('/remove/:barcode', verifyToken, removeFromWatchlist); 
+router.post('/add', verifyToken, addToWatchlist); 
+router.delete('/remove/:barcode', verifyToken, removeFromWatchlist); 
 
 export default router; 
