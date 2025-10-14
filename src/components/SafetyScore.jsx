@@ -1,8 +1,25 @@
 import React from 'react'
 import '../index.css'
-import { ShieldAlert, ShieldCheck, Loader2 } from 'lucide-react'
+import { ShieldAlert, ShieldCheck, Loader2 } from 'lucide-react';
+import { useWatchlistStore } from '../store/watchlistStore';
 
-const SafetyScore = ({ analysis, isAnalyzing, productScanned }) => {
+const SafetyScore = ({ analysis, isAnalyzing, productScanned, productInfo }) => {
+  const { addToWatchlist } = useWatchlistStore(); 
+
+  const handleSaveToWatchlist = async () => {
+    if (!analysis || !productInfo) return;
+    const watchlistData = {
+      productName: productInfo.productName,
+      barcode: productInfo.barcode,
+      imageUrl: productInfo.imageUrl,
+      matchedIngredients: analysis.matchedIngredients,
+      safetyScore: analysis.safetyScore
+    };
+
+    await addToWatchlist(watchlistData);
+  };
+
+  
   if(!productScanned && !isAnalyzing) {
     return (
       <div className='bg-white rounded-lg shadow-md p-6 font-inter flex flex-col min-h-[300px]'>
@@ -98,7 +115,10 @@ const SafetyScore = ({ analysis, isAnalyzing, productScanned }) => {
         </div>
 
         {!isSafe && (
-          <button className='font-medium w-full mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200 cursor-pointer'>
+          <button
+            onClick={handleSaveToWatchlist}
+            className='font-medium w-full mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200 cursor-pointer'
+          >
             Save to Watchlist
           </button>
         )}

@@ -4,6 +4,7 @@ import DashboardGreeting from '../components/DashboardGreeting'
 import AvoidanceList from '../components/AvoidanceList'
 import ProductScanner from '../components/ProductScanner'
 import SafetyScore from '../components/SafetyScore'
+import UnsafeProductsHistory from '../components/UnsafeProductsHistory'
 
 import { useAIStore } from '../store/aiStore'; 
 import { useProductStore } from '../store/productStore'
@@ -26,8 +27,10 @@ const Dashboard = () => {
                 analysis={safetyAnalysis}
                 isAnalyzing={isAnalyzing}
                 productScanned={!!productInfo}
+                productInfo={productInfo}
               />
             </div>
+            <UnsafeProductsHistory/>
           </div>
         </div>
       </main>
