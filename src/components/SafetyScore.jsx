@@ -98,7 +98,7 @@ const SafetyScore = ({ analysis, isAnalyzing, productScanned }) => {
         </div>
 
         {!isSafe && (
-          <button className='w-full mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200'>
+          <button className='font-medium w-full mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200 cursor-pointer'>
             Save to Watchlist
           </button>
         )}

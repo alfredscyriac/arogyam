@@ -26,6 +26,20 @@ const userSchema = new mongoose.Schema({
         type: [String], 
         default: []
     },
+    unsafeProduct: {
+        type: [{
+            productName: String, 
+            barcode: String, 
+            imageURL: String, 
+            matchedIngredients: [String], 
+            safetyScore: Number, 
+            scannedAt: {
+                type: Date, 
+                default: Date.now
+            }
+        }], 
+        default: []
+    },
     resetPasswordToken: String, 
     resetPasswordExpiresAt: Date, 
     verificationToken: String, 
