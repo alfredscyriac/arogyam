@@ -1,23 +1,21 @@
 ![Arogyam Banner](./assets/images/Arogyambanner.png)
 # Arogyam - AI Powered Ingredient Safety Platform
 
-**Arogyam** is an intelligent ingredient identification platform that helps users avoid harmful ingredients while shopping. Users can create personalized avoidance lists, scan product barcodes, and receive AI-powered safety analysis with confidence levels. Unsafe products can be saved to a watchlist for future reference.
-
+**Arogyam** is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
 ---
-
 ## Features
 
 ### Implemented
 - **Complete Authentication System**
   - User signup and signin with JWT authentication
-  - Email verification with token-based system
+  - Two factor account authentication with personalized email verification with token-based system
   - Password reset functionality
   - Secure logout
 
 - **Dashboard**
-  - Personalized avoidance list with full CRUD operations
-  - Real-time state management with Zustand
-  - MongoDB integration for data persistence
+  - Only authenticated users gain access to the dashboard 
+  - The dashboard consists of four components: avoidance list, product scanner, safety report, and unsafe product watchlist
+  - MongoDB integration for data persistence 
 
 - **Product Scanning**
   - Barcode scanner using device camera
@@ -33,18 +31,18 @@
   - Flagged ingredient highlighting
 
 - **Watchlist System**
-  - Automatic saving of unsafe products
-  - Watchlist history view
+  - Users have the option to save unsafe products to a watchlist for future reference
   - Add/remove functionality
-  - Product details display
+  - Product details displayed including image of product, product name, flagged ingredients, and date flagged
 
 ---
-
 ## Tech Stack
 
 ### Frontend
-- **React** with **Vite** for fast development
+- **React** with **Vite**
+- **Lucide** for icons
 - **Tailwind CSS** for styling
+- **Framer Motion** for animated sections 
 - **Zustand** for state management
 - **react-qr-barcode-scanner** for barcode scanning
 - **React Router** for navigation
@@ -60,11 +58,10 @@
 ### AI & External Services
 - **Google Gemini 2.5 Flash API** for ingredient safety analysis
 - **OpenFoodFacts API** for product ingredient data
-- **Mailtrap** for development email testing
-- **Web3Forms** for feedback forms
+- **Mailtrap** for sending emails (verification code, welcome message, password reset link)
+- **Web3Forms** for feedback forms 
 
 ---
-
 ## Architecture
 
 ### State Management (Zustand Stores)
@@ -199,7 +196,6 @@ arogyam/
 ```
 
 ---
-
 ## Workflow
 
 ### 1. Product Scanning Flow
@@ -342,39 +338,6 @@ SafetyScore returns to empty state
 | DELETE | `/api/watchlist/:id` | Remove from watchlist | Yes |
 
 ---
-
-## Environment Variables
-
-### Frontend (`.env`)
-```env
-VITE_API_URL=http://localhost:3001
-```
-
-### Backend (`backend/.env`)
-```env
-# Database
-MONGODB_URI=mongodb://localhost:27017/arogyam
-
-# Authentication
-JWT_SECRET=your_secure_random_string
-
-# AI Service
-GEMINI_API_KEY=your_gemini_api_key
-
-# Server
-PORT=3001
-NODE_ENV=development
-
-# Email Service
-MAILTRAP_TOKEN=your_mailtrap_token
-MAILTRAP_ENDPOINT=https://send.api.mailtrap.io/
-
-# Client
-CLIENT_URL=http://localhost:5173
-```
-
----
-
 ## Current Status
 
 ### User Model Fields
@@ -404,26 +367,11 @@ CLIENT_URL=http://localhost:5173
   updatedAt: Date
 }
 ```
-
-### Component States
-
-**SafetyScore.jsx** has 3 states:
-1. **Empty**: "Scan a product to see safety analysis"
-2. **Loading**: Spinner with "Analyzing ingredients..."
-3. **Results**: Safety score, flagged ingredients, explanation, save button
-
-**ProductScanner.jsx**:
-- Dynamic height (300px → 500px when product scanned)
-- Mutual exclusivity between scan and manual entry
-- Error handling for invalid barcodes
-- Toast notifications for user feedback
-
 ---
-
 ## Developer Notes
 
-**Developer**: Alfred Siby Cyriac
-
+**Developer**: [Alfred Siby Cyriac](https://www.linkedin.com/in/alfredsiby-cyriac/)
+**Notes**: This was very much a passion project for me. I am extremely drawn to the intersection between software and healthcare and saw this project as a tool that can truly help individuals. Currently, as of October 14th, 2025 the projects core functionalities are complete but the project is not yet deployed. I hope to deploy this project in the near future after fine tunning somethings and hope to grow a real user base for Arogyam. I started this project on July 30th, 2025 and saw it as a learning opportunity for me to understand how large scalable software is built. I am very proud of the current outcome and hope to keep improving upon it in my free time. 
 ---
 
 ## Contributing
