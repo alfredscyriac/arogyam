@@ -1,7 +1,7 @@
 ![Arogyam Banner](./assets/images/Arogyambanner.png)
-# Arogyam - AI Powered Ingredient Safety Platform
+# Arogyam - AI Powered Ingredient Safety Platform 💚
 
-Arogyam is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
+##### Arogyam is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
 ---
 ## Features
 
@@ -372,7 +372,7 @@ SafetyScore returns to empty state
 
 Developer: [Alfred Siby Cyriac](https://www.linkedin.com/in/alfredsiby-cyriac/)
 
-This was very much a passion project for me. I am extremely drawn to the intersection between software and healthcare and saw this project as a tool that can truly help individuals. Currently, as of October 14th, 2025 the projects core functionalities are complete but the project is not yet deployed. I hope to deploy this project in the near future after fine tunning somethings and hope to grow a real user base for Arogyam. I started this project on July 30th, 2025 and saw it as a learning opportunity for me to understand how large scalable software is built. I am very proud of the current outcome and hope to keep improving upon it in my free time. 
+##### This was very much a passion project for me. I am extremely drawn to the intersection between software and healthcare and saw this project as a tool that can truly help individuals. Currently, as of October 14th, 2025 the projects core functionalities are complete but the project is not yet deployed. I hope to deploy this project in the near future after fine tunning somethings and hope to grow a real user base for Arogyam. I started this project on July 30th, 2025 and saw it as a learning opportunity for me to understand how large scalable software is built. I am very proud of the current outcome and hope to keep improving upon it in my free time. 
 ---
 
 ## Contributing
