@@ -26,11 +26,11 @@ const userSchema = new mongoose.Schema({
         type: [String], 
         default: []
     },
-    unsafeProduct: {
+    unsafeProducts: {
         type: [{
             productName: String, 
             barcode: String, 
-            imageURL: String, 
+            imageUrl: String, 
             matchedIngredients: [String], 
             safetyScore: Number, 
             scannedAt: {
