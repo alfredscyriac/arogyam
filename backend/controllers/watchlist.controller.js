@@ -64,3 +64,22 @@ export const removeFromWatchlist = async (req, res) => {
         res.status(500).json({ success: false, message: error.message }); 
     }
 };
+
+export const getWatchlist = async (req, res) => {
+    try {
+        const userId = req.userId; 
+
+        const user = User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        } 
+
+        res.status(200).json({
+            success: true, 
+            unsafeProducts: user.unsafeProducts
+        });
+    } catch(error) {
+        console.error("Error fetching watchlist:", error); 
+        res.status(500).json({ success: false, message: error.message }); 
+    }
+}; 
