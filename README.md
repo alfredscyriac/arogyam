@@ -1,4 +1,5 @@
-# Arogyam - AI-Powered Ingredient Safety Platform
+![Arogyam Banner](./assets/images/Arogyambanner.png)
+# Arogyam - AI Powered Ingredient Safety Platform
 
 **Arogyam** is an intelligent ingredient identification platform that helps users avoid harmful ingredients while shopping. Users can create personalized avoidance lists, scan product barcodes, and receive AI-powered safety analysis with confidence levels. Unsafe products can be saved to a watchlist for future reference.
 
@@ -92,13 +93,6 @@ All dashboard, watchlist, and user-specific routes require JWT authentication vi
 
 ## Getting Started
 
-### Prerequisites
-
-- **Node.js** (v16 or higher)
-- **MongoDB** (local or Atlas)
-- **Google Gemini API Key**
-- **Git**
-
 ### Installation
 
 1. **Clone the repository**
@@ -150,10 +144,6 @@ All dashboard, watchlist, and user-specific routes require JWT authentication vi
    cd backend
    npm run dev
    ```
-
-6. **Access the application**
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:3001
 
 ---
 
