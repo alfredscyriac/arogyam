@@ -41,6 +41,19 @@ export const useWatchlistStore = create((set) => ({
             return { success: false }; 
         }
     },
-
     
-}))
+    removeFromWatchlist: async (barcode) => {
+        set({ isLoading: true, error: null }); 
+        try {
+            const response = await axios.delete(`${API_URL}/remove/${barcode}`); 
+            set({ unsafeProducts: response.data.unsafeProducts, isLoading: false}); 
+            toast.success("Product removed"); 
+        } catch (error) {
+            set({
+                error: error.response?.data?.message || "Failed to remove from watchlist", 
+                isLoading: false
+            }); 
+            toast.error("Failed"); 
+        }
+    }
+})); 
