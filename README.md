@@ -1,7 +1,7 @@
 ![Arogyam Banner](./assets/images/Arogyambanner.png)
 # Arogyam - AI Powered Ingredient Safety Platform
 
-**Arogyam** is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
+Arogyam is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
 ---
 ## Features
 
