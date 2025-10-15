@@ -5,11 +5,7 @@
 ---
 
 ## Video Demo
-<div>
-  <a href="https://www.loom.com/share/a1b72ce4c6be499797abc08eb06d9362">
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/a1b72ce4c6be499797abc08eb06d9362-d19d937ea75c1590-full-play.gif">
-  </a>
-</div>
+<div style="position: relative; padding-bottom: 48.958333333333336%; height: 0;"><iframe src="https://www.loom.com/embed/a1b72ce4c6be499797abc08eb06d9362?sid=9f033c68-5d49-4ecf-858e-fcd10c3580e1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ---
 ## Features
