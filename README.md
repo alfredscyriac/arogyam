@@ -3,6 +3,15 @@
 
 ##### Arogyam is an ingredient safety scanner that enables users to avoid certain ingredients from the products they consume. These avoidances can include but is not limited to allergens, religious obligiations, and more. Users create their own personalized avoidance lists, scan product barcodes using their devices built in camera, and receive AI-powered safety analysis with confidence levels. Unsafe products are flagged and can be saved to a watchlist for future reference. 
 ---
+
+## Video Demo
+<div>
+  <a href="https://www.loom.com/share/a1b72ce4c6be499797abc08eb06d9362">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/a1b72ce4c6be499797abc08eb06d9362-d19d937ea75c1590-full-play.gif">
+  </a>
+</div>
+
+---
 ## Features
 
 ### Implemented
