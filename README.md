@@ -5,9 +5,9 @@
 ---
 
 ## Video Demo
-<div>
+<div style="width:100%;">
   <a href="https://www.loom.com/share/a1b72ce4c6be499797abc08eb06d9362">
-    <img style="width:100%; height:auto;" src="https://cdn.loom.com/sessions/thumbnails/a1b72ce4c6be499797abc08eb06d9362-d19d937ea75c1590-full-play.gif">
+    <img style="width:100%; height:auto; display:block;" src="https://cdn.loom.com/sessions/thumbnails/a1b72ce4c6be499797abc08eb06d9362-d19d937ea75c1590-full-play.gif">
   </a>
 </div>
 
